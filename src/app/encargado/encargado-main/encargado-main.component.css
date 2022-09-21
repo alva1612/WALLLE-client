@@ -1,0 +1,4 @@
+table {
+  width: clamp(280px, 80vw, 1000px);
+  margin: auto;
+}

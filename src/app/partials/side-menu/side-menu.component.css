@@ -1,0 +1,16 @@
+ mat-accordion {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  max-width: 120px;
+ }
+
+ .menu-item {
+  display: block;
+ }
+
+ a {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 20px;
+ }

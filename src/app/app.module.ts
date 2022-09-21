@@ -6,12 +6,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+
 import { IndexComponent } from './index/index.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
+import { EncargadoMainComponent } from './encargado/encargado-main/encargado-main.component';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+import { SideMenuComponent } from './partials/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +28,8 @@ import { FooterComponent } from './partials/footer/footer.component';
     IndexComponent,
     HeaderComponent,
     FooterComponent,
+    EncargadoMainComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,9 @@ import { FooterComponent } from './partials/footer/footer.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

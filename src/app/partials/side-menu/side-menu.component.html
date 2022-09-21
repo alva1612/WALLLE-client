@@ -1,0 +1,22 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <i class="fa-solid fa-ticket"></i>
+        <p>Tickets</p>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <a href="" class="menu-item">Abiertos</a>
+    <a href="" class="menu-item">Búsqueda</a>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+                       hideToggle="">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>I'm visible I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
