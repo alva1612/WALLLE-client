@@ -24,6 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
 import { SideMenuComponent } from './Components/partials/side-menu/side-menu.component';
 
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,8 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
     MatExpansionModule,
     HttpClientModule,
     FormsModule,
+    MatSelectModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
