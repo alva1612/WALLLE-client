@@ -7,7 +7,7 @@ export class Ticket {
   id_ticket? : number;
 	trabajador? :  Trabajador;
 	estado? :Estado;
-  urgencia? :Urgencia;
+    urgencia? :Urgencia;
 	dificultad? :Dificultad;
 	titulo? : string;
 	descripcion? : string;

@@ -14,6 +14,8 @@ import { HeaderComponent } from './Components/partials/header/header.component';
 import { FooterComponent } from './Components/partials/footer/footer.component';
 import { EncargadoMainComponent } from './Components/encargado/encargado-main/encargado-main.component';
 
+import { TicketComponent } from './Components/ticket/ticket.component';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +34,7 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
     FooterComponent,
     EncargadoMainComponent,
     SideMenuComponent,
+    TicketComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,89 @@
+
+<div style="padding: 2%">
+
+    <form class="content" (submit)="registraTicket()">
+   <div class="submit-form" >
+
+       <div class="row">
+           <div class="col-lg-12">
+               <h5>Registro de servicio de ticket</h5>
+           </div>
+       </div>
+
+       <div class="row" style="margin-top: 3%">
+
+        <div class="form-group col-md-6">
+            <label for="trabajador">Trabajador</label>
+            <select id="trabajador" name="trabajador" class="form-control" [(ngModel)] = "ticket.trabajador!.id_trabajador">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of trabajadores" value="{{aux.id_trabajador}}">
+                {{aux.nombres}}
+              </option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado" class="form-control" [(ngModel)] = "ticket.estado!.id_estado">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of estados" value="{{aux.id_estado}}">
+                {{aux.descripcion}}
+              </option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="urgencia">Urgencia</label>
+            <select id="urgencia" name="urgencia" class="form-control" [(ngModel)] = "ticket.urgencia!.id_urgencia">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of urgencias" value="{{aux.id_urgencia}}">
+                {{aux.descripcion}}
+              </option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="dificultad">Dificultad</label>
+            <select id="dificultad" name="dificultad" class="form-control" [(ngModel)] = "ticket.dificultad!.id_dificultad">
+              <option value="-1">[Seleccione]</option>
+              <option *ngFor="let aux of dificultades" value="{{aux.id_dificultad}}">
+                {{aux.descripcion}}
+              </option>
+            </select>
+        </div>
+
+           <div class="col-lg-9">
+            <label for="titulo">Titulo:</label>
+            <input type="text" class="form-control" name="titulo" id="titulo"
+                [(ngModel)]="ticket.titulo" />
+        </div>
+        <div class="col-lg-9">
+            <label for="descripcion">descripcion:</label>
+            <input type="text" class="form-control" name="descripcion" id="descripcion"
+                [(ngModel)]="ticket.descripcion" />
+        </div>
+        <div class="col-lg-9">
+            <label for="equipo">equipo:</label>
+            <input type="text" class="form-control" name="equipo" id="equipo"
+                [(ngModel)]="ticket.equipo" />
+        </div>
+   
+        <div class="col-lg-9">
+            <label for="opinion">opinion:</label>
+            <input type="text" class="form-control" name="opinion" id="opinion"
+                [(ngModel)]="ticket.opinion" />
+        </div>
+ 
+       
+
+   </div>
+
+       <div class="row" style="margin-top: 1%">
+           <div class="col-lg-12">
+               <button class="btn btn-success">Registrar</button>
+           </div>
+       </div>
+
+   </div>
+    </form>
+</div>
