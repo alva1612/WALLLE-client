@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: aquamarine !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+  .h5, h5 {
+    font-size: 3.25rem;
+}
+
+.letra{
+  color: white;
+  text-align: center;
+}

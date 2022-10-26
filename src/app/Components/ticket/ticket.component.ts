@@ -23,16 +23,16 @@ import Swal from 'sweetalert2'
 
   ticket: Ticket ={
     estado:{
-        id_estado:-1
+        id_estado:1
       },
       trabajador:{
-        id_trabajador:-1
+        id_trabajador:1
       },
       urgencia:{
-        id_urgencia:-1
+        id_urgencia:1
       },
       dificultad:{
-        id_dificultad:-1
+        id_dificultad:1
       }
 
   }
