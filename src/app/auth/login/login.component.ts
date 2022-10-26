@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
           this.tokenService.setUserNameComplete(data.nombreCompleto)
           this.tokenService.setAuthorities(data.authorities);
           this.tokenService.setUserId(data.idUsuario);
+          this.tokenService.setOpciones(data.opciones);
 
           this.roles = data.authorities;
           this._router.navigate(['index'])
@@ -49,6 +50,9 @@ export class LoginComponent implements OnInit {
           console.log("onLogin() >> idUsuario >>> " +  this.tokenService.getUserId());
           console.log("onLogin() >> roles >>> " +  this.tokenService.getAuthorities());
           console.log("onLogin() >> opciones >>> INICIO >> " );
+          this.tokenService.getOpciones().forEach(obj => {
+            console.log(" >> onLogin() >> " +  obj.nombre ); 
+          });
           console.log("onLogin() >> opciones >>> FIN >> " );
       },
       (err:any) => {
