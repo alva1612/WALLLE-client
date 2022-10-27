@@ -15,3 +15,6 @@ form {
   justify-content: center;
   align-items: center;
 }
+.login-input {
+  color: var(--font-color)
+}

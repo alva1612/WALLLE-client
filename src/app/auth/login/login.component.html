@@ -3,11 +3,11 @@
   <form action="" class="login-form" novalidate (ngSubmit)="entrar()">
     <mat-form-field class="login-input" appearance="fill">
       <mat-label>Usuario</mat-label>
-      <input matInput type="text" name="correo" [(ngModel)]="loginUsuario.correo">
+      <input matInput type="text" name="correo" class="login-input" [(ngModel)]="loginUsuario.correo">
     </mat-form-field>
     <mat-form-field class="login-input" appearance="fill">
       <mat-label>Contraseña</mat-label>
-      <input matInput type="text" name="password" [(ngModel)]="loginUsuario.password">
+      <input matInput type="text" name="password" class="login-input" [(ngModel)]="loginUsuario.password">
     </mat-form-field>
     <button mat-raised-button color="accent">
 <!--       <a routerLink="/index-component" routerLinkActive="active"
