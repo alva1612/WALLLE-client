@@ -5,11 +5,17 @@ nav {
   justify-content: space-between;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
 #logo {
   width: clamp(60px, 20vw, 80px);
   display: flex;
   align-items: center;
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 #logo img {

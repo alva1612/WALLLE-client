@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.tokenService.setOpciones(data.opciones);
 
           this.roles = data.authorities;
-          this._router.navigate(['index'])
+          this._router.navigate(['/'])
 
           console.log("onLogin() >> token >>> " +  this.tokenService.getToken());
           console.log("onLogin() >> setUserName >>> " +  this.tokenService.getUserName());

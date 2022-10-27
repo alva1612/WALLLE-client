@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from 'src/app/Models/ticket';
+import { TicketService } from 'src/app/services/ticket.service';
 
 export interface PeriodicElement {
   name: string;
@@ -20,6 +22,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 10, name: 'Nashee', weight: 20.1797, symbol: 'Ne'},
 ];
 
+
 @Component({
   selector: 'app-encargado-main',
   templateUrl: './encargado-main.component.html',
@@ -27,12 +30,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class EncargadoMainComponent implements OnInit {
 
-  constructor() { }
+  data:Ticket[] = [];
+
+  constructor(private ticketService:TicketService) { 
+    this.ticketService.listar().subscribe((x) => {
+      console.log("subscribe en listar")
+      console.log(x)
+      return this.data = x});
+  }
 
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['idTicket','trabajador', 'titulo', 'descripcion'];
   dataSource = ELEMENT_DATA;
 
 }
