@@ -1,6 +1,9 @@
 <nav>
-  <div id="logo">
-    <img src="../../../assets/logo.png" alt="">
+  <div class="header-left">
+    <div id="logo">
+      <img src="../../../assets/logo.png" alt="">
+    </div>
+    <h5 *ngIf="isLogged" style="color: white;">Bienvenido {{nombreUsuario}}</h5>
   </div>
   <div class="menu-links">
     <a href="">Inicio</a>

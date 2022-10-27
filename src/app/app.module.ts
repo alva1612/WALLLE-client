@@ -25,6 +25,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { SideMenuComponent } from './Components/partials/side-menu/side-menu.component';
 
 import { MatSelectModule } from '@angular/material/select';
+import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule
 
   ],
-  providers: [],
+  providers: [    { provide: HTTP_INTERCEPTORS, useClass: ProdInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

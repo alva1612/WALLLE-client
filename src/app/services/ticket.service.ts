@@ -17,6 +17,10 @@ const baseUrlAutor = AppSettings.API_ENDPOINT+ '/tickets';
     
     registrar(data:Ticket):Observable<any>{
         return this.http.post(baseUrlAutor, data);
-      }
+    }
+
+    listar() :Observable<Ticket[]>{
+      return this.http.get<Ticket[]>(baseUrlAutor + '/listar');
+    }
 
   }
