@@ -21,7 +21,7 @@ export class EncargadoMainComponent implements OnInit {
   data:Ticket[] = [];
 
   constructor(private ticketService:TicketService) {
-    this.ticketService.listar().subscribe((x) => {
+    this.ticketService.listaTicketPorEstado(1).subscribe((x) => {
       console.log("subscribe en listar")
       console.log(x)
       return this.data = x});
