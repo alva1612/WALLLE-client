@@ -2,10 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
-import { Dificultad } from '../Models/dificultad';
-import { Estado } from '../Models/estado';
-import { Trabajador } from '../Models/trabajador';
-import { Urgencia } from '../Models/urgencia';
+import { Dificultad, Estado, Trabajador, Urgencia } from '../Models/Models';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 
@@ -16,7 +13,7 @@ const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 export class UtilService {
 
     constructor(private http:HttpClient) { }
-    
+
     listaDificultad():Observable<Dificultad[]>{
         return this.http.get<Dificultad[]>(baseUrlUtil+"/listaDificultad");
       }
@@ -32,6 +29,6 @@ export class UtilService {
     listaUrgencia():Observable<Urgencia[]>{
         return this.http.get<Urgencia[]>(baseUrlUtil+"/listaUrgencia");
       }
-    
+
 
 }

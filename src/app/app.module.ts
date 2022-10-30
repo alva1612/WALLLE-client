@@ -26,6 +26,7 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
 
 import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
+import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProdInterceptorService } from './interceptors/prod-interceptor.service'
     EncargadoMainComponent,
     SideMenuComponent,
     TicketComponent,
+    ConsultaTickerEstadoComponent
   ],
   imports: [
     BrowserModule,
