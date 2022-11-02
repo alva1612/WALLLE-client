@@ -27,6 +27,7 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
 import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
 import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
+import { EncargadoModule } from './Components/encargado/encargado.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-esta
     IndexComponent,
     HeaderComponent,
     FooterComponent,
-    EncargadoMainComponent,
     SideMenuComponent,
     TicketComponent,
     ConsultaTickerEstadoComponent
@@ -52,7 +52,8 @@ import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-esta
     MatExpansionModule,
     HttpClientModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    EncargadoModule
 
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: ProdInterceptorService, multi: true }],

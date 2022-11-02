@@ -12,7 +12,7 @@ const baseUrlAutor = AppSettings.API_ENDPOINT + '/tickets';
 
 export class TicketService {
 
-  baseUrlTicket = AppSettings.API_ENDPOINT + '/ticket';
+  baseUrlTicket = AppSettings.API_ENDPOINT + '/tickets';
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class TicketService {
 
   listaTicketPorEstado(idEstado: number): Observable<any> {
     const params = new HttpParams().set("idEstado", idEstado);
-    return this.http.get(this.baseUrlTicket + "/porFiltro", { params });
+    return this.http.get(this.baseUrlTicket + `/porEstado/${idEstado}`);
   }
 
 }
