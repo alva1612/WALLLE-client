@@ -14,8 +14,6 @@ import { HeaderComponent } from './Components/partials/header/header.component';
 import { FooterComponent } from './Components/partials/footer/footer.component';
 import { EncargadoMainComponent } from './Components/encargado/encargado-main/encargado-main.component';
 
-import { TicketComponent } from './Components/ticket/ticket.component';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,6 +24,8 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
 
 import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
+import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
+import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { ProdInterceptorService } from './interceptors/prod-interceptor.service'
     FooterComponent,
     EncargadoMainComponent,
     SideMenuComponent,
-    TicketComponent,
+    DetalleTicketComponent,
+    AgregarTicketComponent,
   ],
   imports: [
     BrowserModule,

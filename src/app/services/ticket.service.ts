@@ -23,4 +23,8 @@ const baseUrlAutor = AppSettings.API_ENDPOINT+ '/tickets';
       return this.http.get<Ticket[]>(baseUrlAutor + '/listar');
     }
 
+    buscarPorId(idTicket:number):Observable<any>{
+      return this.http.get(baseUrlAutor + '/buscarPorId/' + idTicket);
+    }
+
   }

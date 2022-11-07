@@ -6,6 +6,7 @@ import { Urgencia } from "./urgencia";
 export class Ticket {
   id_ticket? : number;
 	trabajador? :  Trabajador;
+	usuario? :  Trabajador;
 	estado? :Estado;
     urgencia? :Urgencia;
 	dificultad? :Dificultad;
