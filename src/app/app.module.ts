@@ -26,7 +26,7 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
 
 import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
-import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
+// import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
 import { EncargadoModule } from './Components/encargado/encargado.module';
 
 @NgModule({
@@ -39,7 +39,7 @@ import { EncargadoModule } from './Components/encargado/encargado.module';
     FooterComponent,
     SideMenuComponent,
     TicketComponent,
-    ConsultaTickerEstadoComponent
+    // ConsultaTickerEstadoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +53,8 @@ import { EncargadoModule } from './Components/encargado/encargado.module';
     HttpClientModule,
     FormsModule,
     MatSelectModule,
-    EncargadoModule
+    EncargadoModule,
+    ReactiveFormsModule
 
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: ProdInterceptorService, multi: true }],

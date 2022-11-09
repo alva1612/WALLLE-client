@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators,ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Dificultad, Estado, Ticket, Trabajador, Urgencia } from 'src/app/Models/Models';
 import { TicketService } from 'src/app/services/ticket.service';
 import { UtilService } from 'src/app/services/util.service';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ticket',
@@ -31,7 +32,18 @@ export class TicketComponent implements OnInit {
       id_dificultad: 1
     } as Dificultad,
     id_ticket: 0
-  }
+  };
+
+    //para verificar que e pulsó el boton
+    submitted = false;
+
+    formsRegistra = new FormGroup({
+      validaTitulo: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,40}')]),
+      validaDescripcion: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,500}')]),
+      validaEquipo: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,30}')]),
+ 
+  });
+  
 
   constructor(private ticketService: TicketService, private utilService: UtilService) {
 
@@ -61,10 +73,15 @@ export class TicketComponent implements OnInit {
   }
 
   registraTicket() {
+    this.submitted = true;
+    if (this.formsRegistra.invalid){
+      return;
+ }
 
+ this.submitted = false;
     console.log(this.ticket),
       this.ticketService.registrar(this.ticket).subscribe(
-
+    
 
 
         x => {
