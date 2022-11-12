@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ticket } from 'src/app/Models/Models';
 import { TicketService } from 'src/app/services/ticket.service';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-
 
 @Component({
   selector: 'app-encargado-main',
@@ -20,10 +12,8 @@ export class EncargadoMainComponent implements OnInit {
 
   data:Ticket[] = [];
 
-  constructor(private ticketService:TicketService) {
-    this.ticketService.listaTicketPorEstado(1).subscribe((x) => {
-      console.log("subscribe en listar")
-      console.log(x)
+  constructor(private ticketService:TicketService, private router: Router) { 
+    this.ticketService.listar().subscribe((x) => {
       return this.data = x});
   }
 
@@ -31,6 +21,9 @@ export class EncargadoMainComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['idTicket','trabajador', 'titulo', 'descripcion'];
-  dataSource = this.data;
+
+  navigateToDetail(id:number){
+    this.router.navigate(['/detalleTicket/' + id]);
+  }
 
 }

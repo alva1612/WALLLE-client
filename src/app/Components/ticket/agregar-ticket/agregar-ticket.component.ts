@@ -7,11 +7,11 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ticket',
-  templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css']
+  templateUrl: './agregar-ticket.component.html',
+  styleUrls: ['./agregar-ticket.component.css']
 })
 
-export class TicketComponent implements OnInit {
+export class AgregarTicketComponent implements OnInit {
 
   estados: Estado[] = [];
   trabajadores: Trabajador[] = [];
