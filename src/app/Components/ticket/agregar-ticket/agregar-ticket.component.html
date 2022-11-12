@@ -1,6 +1,7 @@
 
 <div style="padding: 2%" >
-    <form class="content" (submit)="registraTicket()">
+
+    <form class="content" (submit)="registraTicket()" [formGroup]="formsRegistra" >
    <div class="submit-form" >
 
        <div class="row">
@@ -11,59 +12,40 @@
 
        <div class="row" style="margin-top: 3%; margin-left: 20%;">
 
-        <!-- <div class="form-group col-md-6">
-            <label for="trabajador">Trabajador</label>
-            <select id="trabajador" name="trabajador" class="form-control" [(ngModel)] = "ticket.trabajador!.id_trabajador">
-              <option value="-1">[Seleccione]</option>
-              <option *ngFor="let aux of trabajadores" value="{{aux.id_trabajador}}">
-                {{aux.nombres}}
-              </option>
-            </select>
-        </div>
+    
 
-        <div class="form-group col-md-6">
-            <label for="estado">Estado</label>
-            <select id="estado" name="estado" class="form-control" [(ngModel)] = "ticket.estado!.id_estado">
-              <option value="-1">[Seleccione]</option>
-              <option *ngFor="let aux of estados" value="{{aux.id_estado}}">
-                {{aux.descripcion}}
-              </option>
-            </select>
-        </div>
-
-        <div class="form-group col-md-6">
-            <label for="urgencia">Urgencia</label>
-            <select id="urgencia" name="urgencia" class="form-control" [(ngModel)] = "ticket.urgencia!.id_urgencia">
-              <option value="-1">[Seleccione]</option>
-              <option *ngFor="let aux of urgencias" value="{{aux.id_urgencia}}">
-                {{aux.descripcion}}
-              </option>
-            </select>
-        </div>
-
-        <div class="form-group col-md-6">
-            <label for="dificultad">Dificultad</label>
-            <select id="dificultad" name="dificultad" class="form-control" [(ngModel)] = "ticket.dificultad!.id_dificultad">
-              <option value="-1">[Seleccione]</option>
-              <option *ngFor="let aux of dificultades" value="{{aux.id_dificultad}}">
-                {{aux.descripcion}}
-              </option>
-            </select>
-        </div> -->
            <div class="col-lg-9">
             <label for="titulo" style="color: white;">Titulo</label>
-            <input type="text" class="form-control" name="titulo" id="titulo"
+            <input type="text" formControlName="validaTitulo" class="form-control" name="titulo" id="titulo"
                 [(ngModel)]="ticket.titulo" />
+                <div *ngIf="submitted && formsRegistra.controls.validaTitulo.errors" class="invalid">       
+                  <ul>
+                      <li>El titulo es obligatorio</li>    
+                      
+                  </ul>
+              </div>
         </div>
         <div class="col-lg-9">
             <label for="descripcion" style="color: white;">Descripcion</label>
-            <input type="text" class="form-control" name="descripcion" id="descripcion"
+            <input type="text" formControlName="validaDescripcion" class="form-control" name="descripcion" id="descripcion"
                 [(ngModel)]="ticket.descripcion" />
+                <div *ngIf="submitted && formsRegistra.controls.validaDescripcion.errors" class="invalid">       
+                    <ul>
+                        <li>La descripciòn es obligatorio</li>    
+                        
+                    </ul>
+                </div>
         </div>
         <div class="col-lg-9">
             <label for="equipo" style="color: white;">Equipo</label>
-            <input type="text" class="form-control" name="equipo" id="equipo"
+            <input type="text" formControlName="validaEquipo" class="form-control" name="equipo" id="equipo"
                 [(ngModel)]="ticket.equipo" />
+                <div *ngIf="submitted && formsRegistra.controls.validaEquipo.errors" class="invalid">       
+                    <ul>
+                        <li>El nombre del equipo es obligatorio</li>    
+                        
+                    </ul>
+                </div>
         </div>
         <!-- <div class="col-lg-9">
             <label for="opinion">opinion:</label>
@@ -74,7 +56,7 @@
 
        <div class="row" style="margin-top: 1%;text-align: center;">
            <div class="col-lg-12">
-               <button class="btn btn-success">Registrar</button>
+               <button class="btn btn-success" [disabled]="submitted && formsRegistra.invalid">Registrar</button>
            </div>
        </div>
 

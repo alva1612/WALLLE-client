@@ -35,7 +35,6 @@ import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agreg
     IndexComponent,
     HeaderComponent,
     FooterComponent,
-    EncargadoMainComponent,
     SideMenuComponent,
     DetalleTicketComponent,
     AgregarTicketComponent,
@@ -51,7 +50,9 @@ import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agreg
     MatExpansionModule,
     HttpClientModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    EncargadoModule,
+    ReactiveFormsModule
 
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: ProdInterceptorService, multi: true }],
