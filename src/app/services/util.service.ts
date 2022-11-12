@@ -19,7 +19,7 @@ export class UtilService {
       }
 
     listaEstado():Observable<Estado[]>{
-        return this.http.get<Estado[]>(baseUrlUtil+"/listaEstado");
+        return this.http.get<Estado[]>(baseUrlUtil+"/listarPorEstado");
       }
 
     listaTrabajador():Observable<Trabajador[]>{

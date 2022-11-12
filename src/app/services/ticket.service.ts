@@ -26,12 +26,12 @@ export class TicketService {
   }
 
   listar(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(baseUrlAutor + '/porEstado/1');
+    return this.http.get<Ticket[]>(baseUrlAutor + '/listarPorEstado/1');
   }
 
   listaTicketPorEstado(idEstado: number): Observable<any> {
     const params = new HttpParams().set("idEstado", idEstado);
-    return this.http.get(this.baseUrlTicket + `/porEstado/${idEstado}`);
+    return this.http.get(this.baseUrlTicket + `/listarPorEstado/${idEstado}`);
   }
 
 }

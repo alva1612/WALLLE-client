@@ -26,6 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
+import { EncargadoModule } from './Components/encargado/encargado.module';
+import { ConsultaTickerEstadoComponent } from './Components/consulta-ticker-estado/consulta-ticker-estado.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agreg
     SideMenuComponent,
     DetalleTicketComponent,
     AgregarTicketComponent,
+    ConsultaTickerEstadoComponent
   ],
   imports: [
     BrowserModule,

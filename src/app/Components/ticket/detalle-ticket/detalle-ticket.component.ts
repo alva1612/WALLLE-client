@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Ticket } from 'src/app/Models/ticket';
+import { Ticket } from 'src/app/Models/Models';
 import { TicketService } from 'src/app/services/ticket.service';
 import Swal from 'sweetalert2';
 
