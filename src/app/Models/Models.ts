@@ -12,6 +12,7 @@ export interface Dificultad {
 }
 export interface Ticket {
   id_ticket?: number;
+  idTicket?: number;
 	trabajador? :  Trabajador;
     usuario? :  Trabajador;
 	estado? :Estado;

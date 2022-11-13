@@ -20,7 +20,7 @@ export class EncargadoMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['idTicket','trabajador', 'titulo', 'descripcion'];
+  displayedColumns: string[] = ['idTicket','trabajador', 'titulo', 'descripcion', 'borrar'];
 
   navigateToDetail(id:number){
     this.router.navigate(['/detalleTicket/' + id]);
