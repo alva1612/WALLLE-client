@@ -31,7 +31,7 @@ export class TicketComponent implements OnInit {
     dificultad: {
       id_dificultad: 1
     } as Dificultad,
-    id_ticket: 0
+    idTicket: 0
   };
 
     //para verificar que e pulsó el boton

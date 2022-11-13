@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
 // import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
 import { EncargadoModule } from './Components/encargado/encargado.module';
+import { CambiarEstadoTicketComponent } from './Components/cambiar-estado-ticket/cambiar-estado-ticket.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { EncargadoModule } from './Components/encargado/encargado.module';
     FooterComponent,
     SideMenuComponent,
     TicketComponent,
+    CambiarEstadoTicketComponent
     // ConsultaTickerEstadoComponent
   ],
   imports: [

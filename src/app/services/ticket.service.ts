@@ -22,12 +22,17 @@ export class TicketService {
   }
 
   listar(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(baseUrlAutor + '/porEstado/1');
+    return this.http.get<Ticket[]>(baseUrlAutor + '/listar');
   }
 
   listaTicketPorEstado(idEstado: number): Observable<any> {
     const params = new HttpParams().set("idEstado", idEstado);
     return this.http.get(this.baseUrlTicket + `/porEstado/${idEstado}`);
+  }
+
+  cambiaEstadoPorTicket(idEstado: number, idTicket: number){
+    const params = new HttpParams().set("id_estado", idEstado).set("id_ticket", idTicket)
+    return this.http.put(this.baseUrlTicket + `/actualizarEstado/${idEstado}/${idTicket}`, null)
   }
 
 }
