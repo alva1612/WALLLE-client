@@ -34,4 +34,8 @@ export class TicketService {
     return this.http.get(this.baseUrlTicket + `/listarPorEstado/${idEstado}`);
   }
 
+  actualizarTrabajador(id_trabajador:number, idticket:number): Observable<any>{
+    return this.http.get(this.baseUrlTicket + "/actualizarTrabajadores/" + id_trabajador + "/" + idticket)
+  }
+
 }
