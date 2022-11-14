@@ -1,85 +1,47 @@
-<app-header></app-header>
 <app-side-menu></app-side-menu>
 
-<div style="padding: 2%">
-         <div class="row" style="margin-top: 3%">
-                <table mat-table [dataSource]="ticket" class="mat-elevation-z8">
-                  <ng-container matColumnDef="idTicket">
-                    <th mat-header-cell *matHeaderCellDef> Código </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.idTicket}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="titulo">
-                    <th mat-header-cell *matHeaderCellDef> Título </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.titulo}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="descripcion">
-                    <th mat-header-cell *matHeaderCellDef> Descripción </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.descripcion}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="equipo">
-                    <th mat-header-cell *matHeaderCellDef> Equipo </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.equipo}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="estrellas">
-                    <th mat-header-cell *matHeaderCellDef> Estrellas </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.estrellas}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="opinion">
-                    <th mat-header-cell *matHeaderCellDef> Opinión </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.opinion}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="estado">
-                    <th mat-header-cell *matHeaderCellDef> Estado </th>
-                    <td mat-cell *matCellDef="let ticket"> {{ticket.estado.descripcion}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="cambiarEstado">
-                    <th mat-header-cell *matHeaderCellDef> Opciones </th>
-                      <td mat-cell *matCellDef="let ticket">
-                        <mat-form-field appearance="fill">
-                          <mat-label>{{ticket.estado.descripcion}}</mat-label>
-                          <mat-select name="id_estado" [(ngModel)]="ticket.estado.id_estado" (selectionChange)="cambiaEstado(ticket.estado.id_estado, ticket.idTicket)">
-                            <mat-option *ngFor="let est of estado" value="{{est.id_estado}}">
-                              {{est.descripcion}}
-                            </mat-option>
-                          </mat-select>
-                      </mat-form-field> 
-                    </td>
-                  </ng-container>
-                  
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  <!--thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>TITULO</th>
-                            <th>DESCRIPCIÓN</th>
-                            <th>EQUIPO</th>
-                            <th>ESTRELLAS</th>
-                            <th>OPINION</th>
-                            <th>ESTADO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr *ngFor="let tckt of ticket">
-                              <td>{{tckt.idTicket}}</td>
-                              <td>{{tckt.titulo}}</td>
-                              <td>{{tckt.descripcion}}</td>
-                              <td>{{tckt.equipo}}</td>
-                              <td>{{tckt.estrellas}}</td>
-                              <td>{{tckt.opinion}}</td>
-                              <td>{{tckt.estado!.descripcion}}</td>
-                              <td>
-                                
-                              </td>
-                            </tr>
-
-                    </tbody -->
-
-
-                </table>
-
-
-         </div>
-
-
-        </div>
+<table mat-table [dataSource]="ticket" class="mat-elevation-z8">
+  <ng-container matColumnDef="idTicket">
+    <th mat-header-cell *matHeaderCellDef> Código </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.idTicket}} </td>
+  </ng-container>
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef> Título </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.titulo}} </td>
+  </ng-container>
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.descripcion}} </td>
+  </ng-container>
+  <ng-container matColumnDef="equipo">
+    <th mat-header-cell *matHeaderCellDef> Equipo </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.equipo}} </td>
+  </ng-container>
+  <ng-container matColumnDef="estrellas">
+    <th mat-header-cell *matHeaderCellDef> Estrellas </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.estrellas}} </td>
+  </ng-container>
+  <ng-container matColumnDef="opinion">
+    <th mat-header-cell *matHeaderCellDef> Opinión </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.opinion}} </td>
+  </ng-container>
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.estado.descripcion}} </td>
+  </ng-container>
+  <ng-container matColumnDef="cambiarEstado">
+    <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let ticket">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ticket.estado.descripcion}}</mat-label>
+          <mat-select name="id_estado" [(ngModel)]="ticket.estado.id_estado" (selectionChange)="cambiaEstado(ticket.estado.id_estado, ticket.idTicket)">
+            <mat-option *ngFor="let est of estado" value="{{est.id_estado}}">
+              {{est.descripcion}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field> 
+    </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

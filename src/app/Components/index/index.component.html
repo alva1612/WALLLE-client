@@ -1,7 +1,8 @@
     <div *ngIf="isLogged; else loggedOut">
         <app-header></app-header>
         <app-side-menu></app-side-menu>
-        <app-encargado-main></app-encargado-main>
+        <!-- <app-encargado-main></app-encargado-main> -->
+        <app-listado-ticket></app-listado-ticket>
     </div>
     <ng-template #loggedOut>
         <div class="container text-center">

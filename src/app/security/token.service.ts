@@ -62,8 +62,8 @@ export class TokenService {
 
   public getOpciones(): Opcion[] {
     this.opciones = [];
-    if (sessionStorage.getItem(OPCIONES_KEY)) {   
-      JSON.parse(sessionStorage.getItem(OPCIONES_KEY)|| '{}').forEach(
+    if (window.sessionStorage.getItem(OPCIONES_KEY)) {   
+      JSON.parse(window.sessionStorage.getItem(OPCIONES_KEY)|| '{}').forEach(
         (aux:any) => {
           this.opciones.push(aux);
         }

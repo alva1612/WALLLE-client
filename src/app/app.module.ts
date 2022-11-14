@@ -14,8 +14,6 @@ import { HeaderComponent } from './Components/partials/header/header.component';
 import { FooterComponent } from './Components/partials/footer/footer.component';
 import { EncargadoMainComponent } from './Components/encargado/encargado-main/encargado-main.component';
 
-import { TicketComponent } from './Components/ticket/ticket.component';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,8 +24,11 @@ import { SideMenuComponent } from './Components/partials/side-menu/side-menu.com
 
 import { MatSelectModule } from '@angular/material/select';
 import { ProdInterceptorService } from './interceptors/prod-interceptor.service';
-// import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
+import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
+import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { EncargadoModule } from './Components/encargado/encargado.module';
+import { ConsultaTickerEstadoComponent } from './Components/consulta-ticker-estado/consulta-ticker-estado.component';
+import { ListadoTicketComponent } from './Components/listado-ticket/listado-ticket.component';
 import { CambiarEstadoTicketComponent } from './Components/cambiar-estado-ticket/cambiar-estado-ticket.component';
 
 @NgModule({
@@ -39,9 +40,11 @@ import { CambiarEstadoTicketComponent } from './Components/cambiar-estado-ticket
     HeaderComponent,
     FooterComponent,
     SideMenuComponent,
-    TicketComponent,
+    DetalleTicketComponent,
+    AgregarTicketComponent,
+    ConsultaTickerEstadoComponent,
+    ListadoTicketComponent,
     CambiarEstadoTicketComponent
-    // ConsultaTickerEstadoComponent
   ],
   imports: [
     BrowserModule,

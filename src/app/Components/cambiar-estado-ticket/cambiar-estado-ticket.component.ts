@@ -37,7 +37,7 @@ export class CambiarEstadoTicketComponent implements OnInit {
 
    cambiaEstado(idEstado: number, idTicket: number){
     Swal.fire({
-      title: "Quieres cambiar el estado del ticket?",
+      title: "¿Quieres cambiar el estado del ticket?",
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Si',
@@ -56,8 +56,7 @@ export class CambiarEstadoTicketComponent implements OnInit {
         this.consultaTicket()
       }
     })
-    
-   }
+  }
  
    ngOnInit(): void {
    }

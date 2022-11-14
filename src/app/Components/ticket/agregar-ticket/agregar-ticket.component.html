@@ -1,0 +1,68 @@
+
+<div style="padding: 2%" >
+
+    <form class="content" (submit)="registraTicket()" [formGroup]="formsRegistra" >
+   <div class="submit-form" >
+
+       <div class="row">
+           <div class="col-lg-12" >
+               <h5 class="letra">Registro de servicio de ticket</h5>
+           </div>
+       </div>
+
+       <div class="row" style="margin-top: 3%; margin-left: 20%;">
+
+    
+
+           <div class="col-lg-9">
+            <label for="titulo" style="color: white;">Titulo</label>
+            <input type="text" formControlName="validaTitulo" class="form-control" name="titulo" id="titulo"
+                [(ngModel)]="ticket.titulo" />
+                <div *ngIf="submitted && formsRegistra.controls.validaTitulo.errors" class="invalid">       
+                  <ul>
+                      <li>El titulo es obligatorio</li>    
+                      
+                  </ul>
+              </div>
+        </div>
+        <div class="col-lg-9">
+            <label for="descripcion" style="color: white;">Descripcion</label>
+            <input type="text" formControlName="validaDescripcion" class="form-control" name="descripcion" id="descripcion"
+                [(ngModel)]="ticket.descripcion" />
+                <div *ngIf="submitted && formsRegistra.controls.validaDescripcion.errors" class="invalid">       
+                    <ul>
+                        <li>La descripciòn es obligatorio</li>    
+                        
+                    </ul>
+                </div>
+        </div>
+        <div class="col-lg-9">
+            <label for="equipo" style="color: white;">Equipo</label>
+            <input type="text" formControlName="validaEquipo" class="form-control" name="equipo" id="equipo"
+                [(ngModel)]="ticket.equipo" />
+                <div *ngIf="submitted && formsRegistra.controls.validaEquipo.errors" class="invalid">       
+                    <ul>
+                        <li>El nombre del equipo es obligatorio</li>    
+                        
+                    </ul>
+                </div>
+        </div>
+        <!-- <div class="col-lg-9">
+            <label for="opinion">opinion:</label>
+            <input type="text" class="form-control" name="opinion" id="opinion"
+                [(ngModel)]="ticket.opinion" />
+        </div> -->
+   </div>
+
+       <div class="row" style="margin-top: 1%;text-align: center;">
+           <div class="col-lg-12">
+               <button class="btn btn-success" [disabled]="submitted && formsRegistra.invalid">Registrar</button>
+           </div>
+       </div>
+
+   </div>
+    </form>
+</div>
+
+
+

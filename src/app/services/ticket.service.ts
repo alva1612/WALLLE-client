@@ -25,6 +25,10 @@ export class TicketService {
     return this.http.get<Ticket[]>(baseUrlAutor + '/listar');
   }
 
+  buscarPorId(idTicket: number):Observable<any>{
+    return this.http.get(baseUrlAutor + '/buscarPorId/' + idTicket);
+  }
+
   listaTicketPorEstado(idEstado: number): Observable<any> {
     const params = new HttpParams().set("idEstado", idEstado);
     return this.http.get(this.baseUrlTicket + `/porEstado/${idEstado}`);
@@ -33,6 +37,10 @@ export class TicketService {
   cambiaEstadoPorTicket(idEstado: number, idTicket: number){
     const params = new HttpParams().set("id_estado", idEstado).set("id_ticket", idTicket)
     return this.http.put(this.baseUrlTicket + `/actualizarEstado/${idEstado}/${idTicket}`, null)
+  }
+
+  actualizarTrabajador(data :Ticket): Observable<any>{
+    return this.http.put(this.baseUrlTicket + "/actualizarTrabajador", data);
   }
 
 }
