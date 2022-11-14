@@ -36,6 +36,7 @@ export class ListadoTicketComponent implements OnInit {
       console.log(x)
       // console.log(this.data = x)
       return this.data = x});
+      this.consultaEstado();
   }
 
   consultaTicket(){
@@ -44,6 +45,7 @@ export class ListadoTicketComponent implements OnInit {
       console.log(x)
       // console.log(this.data = x)
       return this.data = x});
+      this.consultaEstado();
   }
 
   ngOnInit(): void {
@@ -118,6 +120,12 @@ actualiza(){
             // ); 
         }
   )
+}
+
+consultaEstado(){
+  this.utilService.listaEstado().subscribe((x) => {
+    return this.estado = x}
+  );
 }
 
 

@@ -28,7 +28,7 @@
                                 <td>{{x.estado!.descripcion}}</td>
                                 <!-- <td><button type="button"  style="width: 90px" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td> -->
                                 <td>
-                                    <select name="id_estado" [(ngModel)]="x.estado!.id_estado" (selectionChange)="cambiaEstado(x.estado!.id_estado, x.idTicket!)">
+                                    <select name="id_estado" [(ngModel)]="x.estado!.id_estado" (change)="cambiaEstado(x.estado!.id_estado, x.idTicket!)">
                                         <option *ngFor="let est of estado" value="{{est.id_estado}}">
                                             {{est.descripcion}}
                                         </option>
