@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ticket, Dificultad, Estado, Trabajador, Urgencia  } from 'src/app/Models/Models';
 import { TicketService } from 'src/app/services/ticket.service';
 import { UtilService } from 'src/app/services/util.service';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ import Swal from 'sweetalert2'
 export class ListadoTicketComponent implements OnInit {
 
 
-
+  trabajadores: Trabajador[] = [];
   data:Ticket[] = [
 
     
@@ -29,12 +30,18 @@ export class ListadoTicketComponent implements OnInit {
     
 
 
-  constructor(private ticketService:TicketService,  private utilService:UtilService) { 
+  constructor(private ticketService:TicketService,  private utilService:UtilService, private router: Router) { 
     this.ticketService.listar().subscribe((x) => {
       console.log("data")
       console.log(x)
       // console.log(this.data = x)
       return this.data = x});
+
+      utilService.listaTrabajador().subscribe(t => {
+
+        this.trabajadores = t;
+  
+      })
   }
 
   ngOnInit(): void {
@@ -44,6 +51,7 @@ export class ListadoTicketComponent implements OnInit {
   //  ticket: Ticket = { 
     
   // };
+
 
   ticket: Ticket = { 
     id_ticket: 0,
@@ -90,6 +98,9 @@ export class ListadoTicketComponent implements OnInit {
 	opinion : "",
   };
 
+  navigateToDetail(obj:Ticket){
+    this.router.navigate(['/detalleTicket/' + obj.idTicket]);
+  }
   
   busca(obj: Ticket){
 
@@ -98,19 +109,28 @@ export class ListadoTicketComponent implements OnInit {
 
 }
 
-actualiza(){
-  console.log(">>> actualiza >> "+ this.ticket.trabajador!.id_trabajador);
-  this.ticketService.actualizarTrabajador(this.ticket).subscribe(
+
+
+actualiza3(obj: Ticket){
+  console.log(this.ticket.trabajador!.id_trabajador + "hasta" + obj.idTicket );
+
+  this.ticketService.actualizarTrabajador(this.ticket.trabajador!.id_trabajador, !obj.idTicket?  -1 : obj.idTicket ).subscribe(
       x => {
-            document.getElementById("btn_act_cerrar")?.click(); 
+            // document.getElementById("btn_act_cerrar")?.click(); 
             Swal.fire('Mensaje', x.mensaje,'info');
-            // this.docenteService.consultaDocente(this.filtro==""?"todos":this.filtro).subscribe(
-            //     x => this.docentes = x
-            // ); 
+            // this.ticketService.listar().subscribe((x) => {
+            //   console.log("data")
+            //   console.log(x)
+            //   // console.log(this.data = x)
+            //   return this.data = x});
+            // // this.docenteService.consultaDocente(this.filtro==""?"todos":this.filtro).subscribe(
+            // //     x => this.docentes = x
+            // // ); 
+
+            location.reload();
         }
   )
 }
-
 
 
 

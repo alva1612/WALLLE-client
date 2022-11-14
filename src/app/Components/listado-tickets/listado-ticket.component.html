@@ -1,6 +1,6 @@
 
 <div class="container" >
-    <h5 style="color: white;">Listado de ticket</h5>
+    <h5 style="color: white ;">Listado de ticket</h5>
 
     <div class="col-md-23 color-letra" style="margin-top: 3%">
 
@@ -15,8 +15,9 @@
                                 <th style="width: 30%">Trabajador</th>
                                 <th style="width: 10%">Titulo</th>
                                 <th style="width: 10%">Descripcion</th>
+                                <th style="width: 10%">Accion</th>
                           
-                                <th style="width: 7%"></th>   
+                                <th style="width: 15%"></th>   
                             </tr>
                         </thead>
                         <tbody>
@@ -25,10 +26,21 @@
                                 <td>{{x.trabajador!.nombres}}</td>
                                 <td>{{x.titulo}}</td>
                                 <td>{{x.descripcion}}</td>
-                              
-                                <!-- <td><button type="button"  style="width: 90px" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td> -->
-                                <td><button type="button" (click)="busca(x)" style="width: 90px" class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#idModalActualizar">Editar</button>
+                                <td>
+                                    <div class="custom-control custom-switch">
+                                        <!-- <input type="checkbox" class="custom-control-input" id="idEstado_{{x.idDocente}}" name="estado" [checked]="x.estado==1?true:false" (change)="cambiaEstado(x)" />      -->
+                                        <select     id="id_sel_trabajador_{{x.idTicket}}" name="selected" class="form-control" [(ngModel)]="ticket.trabajador!.id_trabajador" (change)="actualiza3(x)">
+                                            <option value="-1"> [Seleccione] </option>
+                                            <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}"> 
+                                                        {{ aux.nombres }}
+                                            </option>
+                                        </select>
+                                      </div>  
                                 </td>
+                                <td>
+                               <button type="button"  (click)="navigateToDetail(x)" style="width: 90px" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Detalle</button>
+                               <!-- <button type="button" (click)="busca(x)" style="width: 90px" class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#idModalActualizar">Editar</button> -->
+                            </td>
                             </tr>
                         </tbody>
                     </table>
@@ -140,7 +152,7 @@
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" id="btn_act_cerrar" style="width: 100px;">Close</button>
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
-                                    <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button>
+                                    <!-- <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button> -->
                                 </div>
                             </div>
                         </div>
