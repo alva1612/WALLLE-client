@@ -29,7 +29,7 @@
                                 <td>
                                     <div class="custom-control custom-switch">
                                         <!-- <input type="checkbox" class="custom-control-input" id="idEstado_{{x.idDocente}}" name="estado" [checked]="x.estado==1?true:false" (change)="cambiaEstado(x)" />      -->
-                                        <select     id="id_sel_trabajador_{{x.idTicket}}" name="selected" class="form-control" [(ngModel)]="ticket.trabajador!.id_trabajador" (change)="actualiza3(x)">
+                                        <select     id="id_sel_trabajador_{{x.idTicket}}" name="selected_{{x.idTicket}}" class="form-control" [(ngModel)]="ticket.trabajador!.id_trabajador" (change)="actualiza3(x)">
                                             <option value="-1"> [Seleccione] </option>
                                             <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}"> 
                                                         {{ aux.nombres }}
@@ -52,122 +52,5 @@
 
 
 
-    <div class="modal fade" id="idModalActualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 80%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Actualización de Encargado</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true">&times;</span>
-                     </button>
-                </div>
-                <div class="modal-body">
-
-                    <form class="content" >
-                        <div class="submit-form">
-
-                            <div  class="row">
-                                <div class="col-lg-8">
-                                    <label for="id_act_nombre">Trabajador</label>
-                                    <input type="text" [(ngModel)]="ticket.trabajador!.id_trabajador"   class="form-control" name="trabajador" id="id_trabajador" />
-
-                                </div>
     
-                                <div class="col-lg-2">
-                                    <label for="id_act_estado">Estado</label>
-                                    <input type="text" [(ngModel)]="ticket.estado!.descripcion"  placeholder="Ingrese DNI" class="form-control" name="estado" id="id_estado" />
-
-                                </div>
-
-                                <div class="col-lg-2">
-                                    <label for="id_act_dni">Urgencia</label>
-                                    <input type="text" [(ngModel)]="ticket.urgencia!.descripcion"  placeholder="Ingrese DNI" class="form-control" name="urgencia" id="id_urgencia" />
-                            
-                                </div>
-             
-    
-    
-                            <div class="row" style="margin-top: 5%">
-                                <div class="col-lg-4">
-                                    <label for="id_act_departamento">Dificultad</label>
-                                    <input type="text" [(ngModel)]="ticket.dificultad!.descripcion"  placeholder="Ingrese DNI" class="form-control" name="dificultad" id="id_dificultad" />
-
-                                </div>
-    
-                                <div class="col-lg-4">
-                                    <label for="id_act_provincia">Titulo</label>
-                                    <input type="text" [(ngModel)]="ticket.titulo"  placeholder="Ingrese DNI" class="form-control" name="titulo" id="id_act_dni" />
-
-                                </div>
-    
-                                <div class="col-lg-4">
-                                    <label for="id_act_distrito">Descripcion</label>
-                                    <input type="text" [(ngModel)]="ticket.descripcion"  placeholder="Ingrese DNI" class="form-control" name="descripcion" id="id_descripcion" />
-
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <label for="id_act_distrito">Equipo</label>
-                                    <input type="text" [(ngModel)]="ticket.equipo"  placeholder="Ingrese DNI" class="form-control" name="equipo" id="id_equipo" />
-
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <label for="id_act_distrito">Estrellas</label>
-                                    <input type="text" [(ngModel)]="ticket.estrellas"  placeholder="Ingrese DNI" class="form-control" name="estrellas" id="id_estrellas" />
-
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <label for="id_act_distrito">Opinion</label>
-                                    <input type="text" [(ngModel)]="ticket.opinion"  placeholder="Ingrese DNI" class="form-control" name="opinion" id="id_opinion" />
-
-                                </div>
-
-                                <!-- <div class="col-lg-4">
-                                    <label for="id_act_distrito">Fecha de Creacion</label>
-                                    <input type="text" [(ngModel)]="docente.dni"  placeholder="Ingrese DNI" class="form-control" name="dni" id="id_act_dni" />
-
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <label for="id_act_distrito">Id Usuario</label>
-                                    <select [(ngModel)] = "docente.ubigeo!.idUbigeo" id="id_act_distrito" name="distrito" class="form-control">
-                                        <option value="-1"> [Seleccione] </option>
-                                        <option *ngFor="let aux of distritos"    value="{{ aux.idUbigeo }}">
-                                            {{ aux.distrito }}
-                                        </option> 
-                                    </select>
-                                </div> -->
-
-                        
-
-                            </div> 
-
-
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" id="btn_act_cerrar" style="width: 100px;">Close</button>
-                            <div class="form-group text-center">
-                                <div class="col-lg-12">
-                                    <!-- <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        </div>
-                    </form>
-
-
-
-
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
   
