@@ -25,8 +25,15 @@
                                 <td>{{x.trabajador!.nombres}}</td>
                                 <td>{{x.titulo}}</td>
                                 <td>{{x.descripcion}}</td>
-                              
+                                <td>{{x.estado!.descripcion}}</td>
                                 <!-- <td><button type="button"  style="width: 90px" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td> -->
+                                <td>
+                                    <select name="id_estado" [(ngModel)]="x.estado!.id_estado" (selectionChange)="cambiaEstado(x.estado!.id_estado, x.idTicket!)">
+                                        <option *ngFor="let est of estado" value="{{est.id_estado}}">
+                                            {{est.descripcion}}
+                                        </option>
+                                    </select>
+                                </td>
                                 <td><button type="button" (click)="busca(x)" style="width: 90px" class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#idModalActualizar">Editar</button>
                                 </td>
                             </tr>

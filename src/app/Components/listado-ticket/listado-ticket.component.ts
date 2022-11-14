@@ -17,10 +17,11 @@ export class ListadoTicketComponent implements OnInit {
 
 
   data:Ticket[] = [
-
+  
     
   ];
-
+  
+  estado:Estado[] = []
      //
     //  dificultad: string[] = [];;
     //  estado: string[] = [];;
@@ -30,6 +31,14 @@ export class ListadoTicketComponent implements OnInit {
 
 
   constructor(private ticketService:TicketService,  private utilService:UtilService) { 
+    this.ticketService.listar().subscribe((x) => {
+      console.log("data")
+      console.log(x)
+      // console.log(this.data = x)
+      return this.data = x});
+  }
+
+  consultaTicket(){
     this.ticketService.listar().subscribe((x) => {
       console.log("data")
       console.log(x)
@@ -112,7 +121,28 @@ actualiza(){
 }
 
 
-
+cambiaEstado(idEstado: number, idTicket: number){
+  Swal.fire({
+    title: "¿Quieres cambiar el estado del ticket?",
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Si',
+    denyButtonText: `No`,
+  }).then((result) => {
+    if(result.isConfirmed) {
+      this.ticketService.cambiaEstadoPorTicket(idEstado, idTicket).subscribe(
+        x =>{
+          Swal.fire('Mensaje', 'Se acaba de cambiar el estado del ticket correctamente', 'info')
+          this.consultaTicket()
+          x = this.ticket
+        } 
+      )
+    }
+    else {
+      this.consultaTicket()
+    }
+  })
+}
 
 
 
