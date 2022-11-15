@@ -22,6 +22,8 @@ export class ListadoTicketComponent implements OnInit {
     
   ];
 
+  seleccionados:number = 1;
+
      //
     //  dificultad: string[] = [];;
     //  estado: string[] = [];;
@@ -112,23 +114,22 @@ export class ListadoTicketComponent implements OnInit {
 
 
 actualiza3(obj: Ticket){
-  console.log(this.ticket.trabajador!.id_trabajador + "hasta" + obj.idTicket );
+  console.log(this.ticket.trabajador!.id_trabajador + "hasta" + obj.idTicket + "desde" + this.seleccionados );
 
   this.ticketService.actualizarTrabajador(this.ticket.trabajador!.id_trabajador, !obj.idTicket?  -1 : obj.idTicket ).subscribe(
       x => {
             // document.getElementById("btn_act_cerrar")?.click(); 
             Swal.fire('Mensaje', x.mensaje,'info');
-            // this.ticketService.listar().subscribe((x) => {
-            //   console.log("data")
-            //   console.log(x)
-            //   // console.log(this.data = x)
-            //   return this.data = x});
-            // // this.docenteService.consultaDocente(this.filtro==""?"todos":this.filtro).subscribe(
-            // //     x => this.docentes = x
-            // // ); 
+            this.ticketService.listar().subscribe((x) => {
+              console.log("data")
+              console.log(x)
+              // console.log(this.data = x)
+              return this.data = x});
 
-            location.reload();
+              this.ticket.trabajador!.id_trabajador = -1
+      
         }
+        
   )
 }
 
