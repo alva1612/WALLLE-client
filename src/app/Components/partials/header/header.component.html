@@ -3,11 +3,14 @@
     <div id="logo">
       <img src="../../../assets/logo.png" alt="">
     </div>
-    <h5 *ngIf="isLogged" style="color: white;">Bienvenido {{nombreUsuario}}</h5>
+    <div class="menu-links">
+      <a href="" class="nav-item">Inicio</a>
+      <a href="" class="nav-item">Tickets</a>
+      <a href="" class="nav-item">Equipo</a>
+    </div>
   </div>
-  <div class="menu-links">
-    <a href="">Inicio</a>
-    <a href="">Tickets</a>
-    <a href="">Equipo</a>
+  <div class="header-right">
+    <a class="button header-right__description">{{nombreUsuario}} - {{firstLetterUpperCase(rol)}}</a>
+    <a class="button header-right__button" (click)="logOut()">Cerrar sesión</a>
   </div>
 </nav>

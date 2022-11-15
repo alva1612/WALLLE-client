@@ -1,13 +1,24 @@
 nav {
   display: flex;
-  width: 100%;
+  flex: 1;
   height: 90px;
   justify-content: space-between;
+  padding: 0px 20px;
+  border-bottom: 1px solid var(--primary-cl-dark);
+  margin-bottom: 40px;
 }
 
 .header-left {
   display: flex;
+  flex: 0.7;
   align-items: center;
+}
+
+.header-right {
+  display: flex;
+  flex: 0.3;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #logo {
@@ -27,4 +38,31 @@ nav {
   gap: 20px;
   align-items: center;
   margin-right: 20px;
+  margin-left: 20px;
+}
+
+.button {
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-right__button {
+  background-color: var(--primary-cl-dark);
+  color: white
+}
+
+.header-right__description {
+  background-color: var(--primary-cl-light);
+  color: var(--primary-cl-dark) ;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--font-color);
+  font-size: 1.2rem;
+  font-weight: 500;
 }

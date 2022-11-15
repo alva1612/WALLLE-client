@@ -6,11 +6,11 @@
   --primary-cl-light: #5DF2D6;
   --primary-cl-dark: #008E76;
 
-  --body-cl: rgb(43, 43, 43);
+  --body-cl: rgb(255, 255, 255);
 
   /* ESTILOS DE CAJAS */
   --br: 5px;
-  --font-color: #b0b0b0;
+  --font-color: #000000;
 }
 
 html { height: 100%; }

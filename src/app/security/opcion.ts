@@ -1,6 +1,6 @@
 export class Opcion {
     idOpcion?: number;
-    nombre?: string;
+    descripcion?: string;
     ruta?: string;
     estado?: number;
     tipo?: number;

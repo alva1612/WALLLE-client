@@ -73,6 +73,8 @@ export class TokenService {
   }
 
   public setAuthorities(authorities: string[]): void {
+    console.log("AUTHORITIES")
+    console.log(authorities)
     window.sessionStorage.removeItem(AUTHORITIES_KEY);
     window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
@@ -82,11 +84,10 @@ export class TokenService {
     if (sessionStorage.getItem(AUTHORITIES_KEY)) {
       JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)|| '{}').forEach(
         (aux:any) => {
-          this.roles.push(aux.authorities);
+          this.roles.push(aux.authority);
         }
       );
     }
-    console.log(">>>> TokenService " + this.roles.length);
     return this.roles;
   }
 

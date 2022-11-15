@@ -1,19 +1,19 @@
-<div id="container">
-  <img src="../../../assets/logo.png" alt="LOGO" id="logo">
-  <form action="" class="login-form" novalidate (ngSubmit)="entrar()">
-    <mat-form-field class="login-input" appearance="fill">
-      <mat-label>Usuario</mat-label>
-      <input matInput type="text" name="correo" class="login-input" [(ngModel)]="loginUsuario.correo">
-    </mat-form-field>
-    <mat-form-field class="login-input" appearance="fill">
-      <mat-label>Contraseña</mat-label>
-      <input matInput type="text" name="password" class="login-input" [(ngModel)]="loginUsuario.password">
-    </mat-form-field>
-    <button mat-raised-button color="accent">
-<!--       <a routerLink="/index-component" routerLinkActive="active"
-      ariaCurrentWhenActive="page">Ingresar</a> -->
-      Ingresar
-    </button>
-  </form>
+<div class="container">
+  <div class="container__form">
+    <img src="../../../assets/logo.png" alt="LOGO" id="logo">
+    <form action="" class="login-form" novalidate (ngSubmit)="entrar()">
+      <mat-form-field class="login-input" appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput type="text" name="correo" class="login-input" [(ngModel)]="loginUsuario.correo">
+      </mat-form-field>
+      <mat-form-field class="login-input" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="text" name="password" class="login-input" [(ngModel)]="loginUsuario.password">
+      </mat-form-field>
+      <button mat-raised-button color="accent">
+        Ingresar
+      </button>
+    </form>
+  </div>
 </div>
 
