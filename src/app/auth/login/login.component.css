@@ -1,10 +1,31 @@
-#container {
+
+body {
+  background-color: #181716!important;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10vh;
+  max-width: 400px;
+  margin-top: 20vh;
 }
+
+.container__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  /* width: 100%; */
+  /* padding: 20px; */
+  background-color: #404040;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
 #logo {
   max-width: 200px;
 }
@@ -16,5 +37,6 @@ form {
   align-items: center;
 }
 .login-input {
-  color: var(--font-color)
+  color: var(--font-color);
+  /* background-color: var(--primary-cl-light); */
 }

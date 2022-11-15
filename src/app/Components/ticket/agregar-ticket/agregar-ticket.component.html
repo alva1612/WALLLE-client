@@ -15,7 +15,7 @@
     
 
            <div class="col-lg-9">
-            <label for="titulo" style="color: white;">Titulo</label>
+            <label for="titulo" style="color: black;">Titulo</label>
             <input type="text" formControlName="validaTitulo" class="form-control" name="titulo" id="titulo"
                 [(ngModel)]="ticket.titulo" />
                 <div *ngIf="submitted && formsRegistra.controls.validaTitulo.errors" class="invalid">       
@@ -26,7 +26,7 @@
               </div>
         </div>
         <div class="col-lg-9">
-            <label for="descripcion" style="color: white;">Descripcion</label>
+            <label for="descripcion" style="color: black;">Descripcion</label>
             <input type="text" formControlName="validaDescripcion" class="form-control" name="descripcion" id="descripcion"
                 [(ngModel)]="ticket.descripcion" />
                 <div *ngIf="submitted && formsRegistra.controls.validaDescripcion.errors" class="invalid">       
@@ -37,7 +37,7 @@
                 </div>
         </div>
         <div class="col-lg-9">
-            <label for="equipo" style="color: white;">Equipo</label>
+            <label for="equipo" style="color: black;">Equipo</label>
             <input type="text" formControlName="validaEquipo" class="form-control" name="equipo" id="equipo"
                 [(ngModel)]="ticket.equipo" />
                 <div *ngIf="submitted && formsRegistra.controls.validaEquipo.errors" class="invalid">       

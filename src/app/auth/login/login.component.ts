@@ -44,8 +44,6 @@ export class LoginComponent implements OnInit {
           this.roles = data.authorities;
           this._router.navigate(['/listado'])
 
-          console.log(data.opciones)
-
           console.log("onLogin() >> token >>> " +  this.tokenService.getToken());
           console.log("onLogin() >> setUserName >>> " +  this.tokenService.getUserName());
           console.log("onLogin() >> setUserNameComplete >>> " +  this.tokenService.getUserNameComplete());
@@ -53,7 +51,8 @@ export class LoginComponent implements OnInit {
           console.log("onLogin() >> roles >>> " +  this.tokenService.getAuthorities());
           console.log("onLogin() >> opciones >>> INICIO >> " );
           this.tokenService.getOpciones().forEach(obj => {
-            console.log(" >> onLogin() >> " +  obj.nombre );
+            console.log(" >> onLogin() >> " +  obj.descripcion); 
+
           });
           console.log("onLogin() >> opciones >>> FIN >> " );
       },
