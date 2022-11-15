@@ -13,14 +13,14 @@ export class EncargadoMainComponent implements OnInit {
   data:Ticket[] = [];
 
   constructor(private ticketService:TicketService, private router: Router) { 
-    this.ticketService.listar().subscribe((x) => {
-      return this.data = x});
+    // this.ticketService.listar().subscribe((x) => {
+    //   return this.data = x});
   }
 
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['idTicket','trabajador', 'titulo', 'descripcion'];
+  displayedColumns: string[] = ['idTicket','trabajador', 'titulo', 'descripcion', 'borrar'];
 
   navigateToDetail(id:number){
     this.router.navigate(['/detalleTicket/' + id]);

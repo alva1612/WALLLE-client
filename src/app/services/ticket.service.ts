@@ -25,13 +25,21 @@ export class TicketService {
     return this.http.post(baseUrlAutor, data);
   }
 
-  listar(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(baseUrlAutor + '/listarPorEstado/1');
+  listar(id:string): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(baseUrlAutor + "/listarPorEstadoTrabajador/1/" + id);
+  }
+
+  listarTrabajadorEstado(idtrabajador:number, idestado:number): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(baseUrlAutor + "/listarPorEstadoTrabajador/" + idestado +"/" + idtrabajador);
   }
 
   listaTicketPorEstado(idEstado: number): Observable<any> {
     const params = new HttpParams().set("idEstado", idEstado);
     return this.http.get(this.baseUrlTicket + `/listarPorEstado/${idEstado}`);
+  }
+
+  actualizarTrabajador(id_trabajador:number, idticket:number): Observable<any>{
+    return this.http.get(this.baseUrlTicket + "/actualizarTrabajadores/" + id_trabajador + "/" + idticket)
   }
 
 }

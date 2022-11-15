@@ -5,6 +5,7 @@ import { EncargadoMainComponent } from './Components/encargado/encargado-main/en
 import { IndexComponent } from './Components/index/index.component';
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
+import { ListadoTicketComponent } from './Components/listado-tickets/listado-ticket.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   // { path: '**', redirectTo: '', pathMatch: 'full' },
   { path: 'detalleTicket/:id', component: DetalleTicketComponent },
   {path: 'encargado/encargado-main', component: EncargadoMainComponent},
+  {path: 'listado', component: ListadoTicketComponent},
 ];
 
 @NgModule({

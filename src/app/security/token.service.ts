@@ -34,6 +34,8 @@ export class TokenService {
 
   public getUserId(): any {
     return sessionStorage.getItem(USER_ID_KEY);
+
+    console.log("prueba" + USER_ID_KEY);
   }
 
 
