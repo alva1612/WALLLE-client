@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   errMsj!: string;
 
   constructor(private tokenService: TokenService,
-    private authService: AuthService,private _router: Router) { 
+    private authService: AuthService,private _router: Router) {
       console.log("constructor >> constructor >>> " + this.tokenService.getToken());
     }
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.tokenService.setOpciones(data.opciones);
 
           this.roles = data.authorities;
-          this._router.navigate(['/'])
+          this._router.navigate(['/listado'])
 
           console.log(data.opciones)
 
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
           console.log("onLogin() >> roles >>> " +  this.tokenService.getAuthorities());
           console.log("onLogin() >> opciones >>> INICIO >> " );
           this.tokenService.getOpciones().forEach(obj => {
-            console.log(" >> onLogin() >> " +  obj.nombre ); 
+            console.log(" >> onLogin() >> " +  obj.nombre );
           });
           console.log("onLogin() >> opciones >>> FIN >> " );
       },
