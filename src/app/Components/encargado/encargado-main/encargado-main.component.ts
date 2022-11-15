@@ -13,8 +13,8 @@ export class EncargadoMainComponent implements OnInit {
   data:Ticket[] = [];
 
   constructor(private ticketService:TicketService, private router: Router) { 
-    this.ticketService.listar().subscribe((x) => {
-      return this.data = x});
+    // this.ticketService.listar().subscribe((x) => {
+    //   return this.data = x});
   }
 
   ngOnInit(): void {

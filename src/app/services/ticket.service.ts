@@ -25,8 +25,12 @@ export class TicketService {
     return this.http.post(baseUrlAutor, data);
   }
 
-  listar(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(baseUrlAutor + '/listarPorEstado/1');
+  listar(id:string): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(baseUrlAutor + "/listarPorEstadoTrabajador/1/" + id);
+  }
+
+  listarTrabajadorEstado(idtrabajador:number, idestado:number): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(baseUrlAutor + "/listarPorEstadoTrabajador/" + idestado +"/" + idtrabajador);
   }
 
   listaTicketPorEstado(idEstado: number): Observable<any> {
