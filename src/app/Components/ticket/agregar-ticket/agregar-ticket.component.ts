@@ -11,12 +11,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./agregar-ticket.component.css']
 })
 
+
+
 export class AgregarTicketComponent implements OnInit {
 
   estados: Estado[] = [];
   trabajadores: Trabajador[] = [];
   urgencias: Urgencia[] = [];
   dificultades: Dificultad[] = [];
+
+  
 
   ticket: Ticket = {
     estado: {
@@ -34,6 +38,7 @@ export class AgregarTicketComponent implements OnInit {
     id_ticket: 0
   };
 
+  emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     //para verificar que e pulsó el boton
     submitted = false;
 
@@ -41,11 +46,14 @@ export class AgregarTicketComponent implements OnInit {
       validaTitulo: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,40}')]),
       validaDescripcion: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,500}')]),
       validaEquipo: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,30}')]),
+      validaCorreo: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
  
   });
   
 
   constructor(private ticketService: TicketService, private utilService: UtilService) {
+
+    // sessionStorage.setItem('prueba', 'no se')
 
     utilService.listaEstado().subscribe(x => {
       this.estados = x;
