@@ -1,31 +1,38 @@
-<!-- <app-header></app-header> -->
-<app-side-menu></app-side-menu>
 
-<div class="container" style="color: black;margin: 50px auto;">
+<div class="container">
     <div>
         <h1>Detalle de Ticket</h1>
     </div>
     <div style="display: flex;flex: 1;">
         <div style="flex: 0.6">
-            <h3>{{ticket.titulo}}</h3>
-            <div style="display: flex;">
-                <p style="margin-right: 20px;">Creado por {{ticket.usuario?.nombres}} {{ticket.usuario?.apellidos}} </p>
-                <p style="font-weight: bold;">Urgencia: {{ticket.urgencia?.descripcion}}</p>
+            <p class="subtitle">{{ticket.titulo}}</p>
+            <div style="display: flex; flex-direction: column;">
+                <!-- <p style="margin-right: 20px;">Creado por {{ticket.usuario?.nombres}} {{ticket.usuario?.apellidos}} </p> -->
+                <p style="font-weight: bold;margin: 0px 0px 5px 0px;">Urgencia: {{ticket.urgencia?.descripcion}}</p>
+                <p class="container-estado__fecha">Creado el {{formatDate(ticket.fechaCreacion)}}</p>
             </div>
             <p>{{ticket.descripcion}}</p>
         </div>
         <div style="flex: 0.4">
-            <div>
-                <h3>Estado</h3>
-                <p>{{ticket.estado?.descripcion}}</p>
+            <div class="container-estado">
+                <p class="subtitle">Estado</p>
+                <div class="estado">
+                    <div class="circle"></div>
+                    <p>{{ticket.estado?.descripcion}}</p>
+                </div>
+                <p class="container-estado__fecha">el {{formatDate(ticket.fechaCreacion)}}</p>
             </div>
-            <div>
-                <h3>Trabajador</h3>
-                <p>{{ticket.usuario?.nombres}} {{ticket.usuario?.apellidos}}</p>
-                <p>{{ticket.usuario?.usuario}}</p>
-                <p>{{ticket.usuario?.correo}}</p>
-                <p>{{ticket.usuario?.id_rol}}</p>
+            <div *ngIf="ticket.trabajador !== null">
+                <div class="container-trabajador">
+                    <p class="subtitle">Trabajador</p>
+                    <p>{{ticket.trabajador?.nombres}} {{ticket.trabajador?.apellidos}}</p>
+                    <p>{{ticket.trabajador?.usuario}}</p>
+                    <span>Correo:</span>
+                    <p>{{ticket.trabajador?.correo}}</p>
+                    <p>{{ticket.trabajador?.id_rol}}</p>
+                </div>
             </div>
         </div>
     </div>
+    
 </div>

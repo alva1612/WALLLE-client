@@ -1,0 +1,46 @@
+.container{ 
+    height: calc(100vh - 250px);
+    color: black;
+    /* margin: 50px auto; */
+}
+
+.container-estado{
+    margin-bottom: 20px;
+}
+
+.estado {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.estado > p {
+    margin: 0;
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: "600";
+} 
+
+.circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.container-estado__fecha{
+    font-size: 14px;
+    color: gray;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.container-trabajador > p {
+    /* display: flex;
+    align-items: center; */
+    margin: 0px;
+}

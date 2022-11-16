@@ -27,8 +27,8 @@ import { ProdInterceptorService } from './interceptors/prod-interceptor.service'
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { EncargadoModule } from './Components/encargado/encargado.module';
-import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
-import { ListadoTicketComponent } from './Components/listado-tickets/listado-ticket.component';
+import { ConsultaTickerEstadoComponent } from './Components/consulta-ticker-estado/consulta-ticker-estado.component';
+import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
 
 @NgModule({
   declarations: [

@@ -23,6 +23,7 @@ export interface Ticket {
 	equipo? : string;
 	estrellas? :number;
 	opinion? : string;
+    fechaCreacion? : string;
 }
 export interface Trabajador {
 

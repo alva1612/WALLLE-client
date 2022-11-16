@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/security/auth.service';
 import { LoginUsuario } from 'src/app/security/login-usuario';
 import { TokenService } from 'src/app/security/token.service';
+// import { Location } from '@angular/common';
+// import { Window } from '@popperjs/core';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   entrar(): void {
+    const win: Window = window;
     this.authService.login(this.loginUsuario).subscribe(
       (data:any) => {
           this.isLogged = true;
@@ -42,7 +45,6 @@ export class LoginComponent implements OnInit {
           this.tokenService.setOpciones(data.opciones);
 
           this.roles = data.authorities;
-          this._router.navigate(['/listado'])
 
           console.log("onLogin() >> token >>> " +  this.tokenService.getToken());
           console.log("onLogin() >> setUserName >>> " +  this.tokenService.getUserName());
@@ -52,9 +54,9 @@ export class LoginComponent implements OnInit {
           console.log("onLogin() >> opciones >>> INICIO >> " );
           this.tokenService.getOpciones().forEach(obj => {
             console.log(" >> onLogin() >> " +  obj.descripcion); 
-
           });
           console.log("onLogin() >> opciones >>> FIN >> " );
+          win.location = "http://localhost:4200/listadoTicket";
       },
       (err:any) => {
           this.isLogged = false;
