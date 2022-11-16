@@ -45,6 +45,9 @@ export class ListadoTicketComponent implements OnInit {
     console.log("este id ira al controller " + id)
     
     this.ticketService.listar(!id?  "0" : id).subscribe((x) => {
+
+     
+
       return this.data = x});
 
       utilService.listaTrabajador().subscribe(t => {

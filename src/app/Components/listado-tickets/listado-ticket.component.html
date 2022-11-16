@@ -39,7 +39,7 @@
                         <thead>
                             <tr>
                                 <!-- <th style="width: 5%">Código</th> -->
-                                <th style="width: 30%">Trabajador</th>
+                                <th style="width: 30%">Iniciales</th>
                                 <th style="width: 20%">Titulo</th>
                                 <th style="width: 20%">Descripcion</th>
                                 <th style="width: 10%">Estado</th>
@@ -51,7 +51,9 @@
                         <tbody>
                             <tr *ngFor="let x of data">
                                 <!-- <td>{{x.idTicket}}</td> -->
-                                <td>{{x.trabajador!.nombres}}</td>
+                                <!-- <td>{{x.trabajador!.nombres}}</td> -->
+
+                                <td>{{x.trabajador!.usuario}}</td>
                                 <td>{{x.titulo}}</td>
                                 <td>{{x.descripcion}}</td>
                                 <td>{{x.estado!.descripcion}}</td>
