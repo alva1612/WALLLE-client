@@ -15,6 +15,7 @@ import Swal from 'sweetalert2'
 })
 export class ListadoTicketComponent implements OnInit {
 
+  eliminar = false;
 
   // public id:number = -1;
 
@@ -42,12 +43,10 @@ export class ListadoTicketComponent implements OnInit {
 
       // !id? sessionStorage.getItem('AuthUserId') : sessionStorage.getItem('AuthUserId') ;
 
-    console.log("este id ira al controller " + id)
     
     this.ticketService.listar(!id?  "0" : id).subscribe((x) => {
 
-     
-
+    
       return this.data = x});
 
       utilService.listaTrabajador().subscribe(t => {
@@ -61,6 +60,10 @@ export class ListadoTicketComponent implements OnInit {
         this.estados = e;
   
       })
+
+      if(id == "6"){
+        this.eliminar = true;
+      }
   }
 
   ngOnInit(): void {
@@ -179,6 +182,18 @@ export class ListadoTicketComponent implements OnInit {
 
 actualiza3(obj: Ticket){
 
+  Swal.fire({
+    title: 'Mensaje',
+    text: "¿Desea Asignar este ticket a este Trabajador?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, Asignar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+
   this.ticketService.actualizarTrabajador(this.ticket.trabajador!.id_trabajador, !obj.idTicket?  -1 : obj.idTicket ).subscribe(
       x => {
 
@@ -196,6 +211,10 @@ actualiza3(obj: Ticket){
         }
         
   )
+
+}
+})
+
 }
 
 consulta(){
@@ -206,10 +225,7 @@ consulta(){
   console.log(">>> consulta >> " + this.ticket2.trabajador!.id_trabajador + " este sera el idestado = " + this.ticket.estado!.id_estado);
 
   this.ticketService.listarTrabajadorEstado(this.ticket2.trabajador!.id_trabajador, this.ticket2.estado!.id_estado).subscribe(x => {
-    // console.log("data")
-    // console.log(x)
-    //  console.log("se quiere filtrar x " + x.mensaje + x.trabajador!.nombres)
-
+  
     this.data2 = x
 
     Swal.fire('Mensaje', 'Se tiene ' +  x.length + ' registros' ,'info');
@@ -218,6 +234,41 @@ consulta(){
     
     
     );
+}
+
+elimina(obj :Ticket){
+  console.log(">>> elimina >> ");
+  
+  Swal.fire({
+    title: 'Mensaje',
+    text: "¿Desea eliminar?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, elimine',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+          this.ticketService.eliminaDocente(obj.idTicket || 0).subscribe(
+          
+            x => {
+
+              let id =  sessionStorage.getItem('AuthUserId');
+                  // document.getElementById("btn_act_cerrar")?.click(); 
+                  Swal.fire('Mensaje', x.mensaje,'info');
+                  this.ticketService.listar(!id?  "0" : id).subscribe((x) => {
+               
+                    return this.data = x});
+      
+                    this.ticket.trabajador!.id_trabajador = -1
+            
+              }
+          );
+    }
+  })
+
+  
 }
 
 
