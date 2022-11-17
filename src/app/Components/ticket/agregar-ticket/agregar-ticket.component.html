@@ -47,6 +47,18 @@
                     </ul>
                 </div>
         </div>
+
+        <div class="col-lg-9">
+            <label for="equipo" style="color: black;">Correo Personal( A ese correo le llegara la encuesta)</label>
+            <input type="text" formControlName="validaCorreo" class="form-control" name="equipo" id="equipo"
+                [(ngModel)]="ticket.correo_cliente" />
+                <div *ngIf="submitted && formsRegistra.controls.validaCorreo.errors" class="invalid">       
+                    <ul>
+                        <li>El correo personal es obligatorio</li>    
+                        
+                    </ul>
+                </div>
+        </div>
         <!-- <div class="col-lg-9">
             <label for="opinion">opinion:</label>
             <input type="text" class="form-control" name="opinion" id="opinion"

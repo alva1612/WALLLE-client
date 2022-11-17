@@ -24,6 +24,7 @@ export interface Ticket {
 	estrellas? :number;
 	opinion? : string;
     fechaCreacion? : string;
+	correo_cliente? : string;
 }
 export interface Trabajador {
 
