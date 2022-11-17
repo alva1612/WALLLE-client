@@ -1,4 +1,4 @@
-<div *ngIf="isLogged; else loggedOut" class="container">
+<div *ngIf="isLogged || route == '/feedback'; else loggedOut" class="container">
   <app-header></app-header>
   <!-- <app-side-menu></app-side-menu> -->
   <router-outlet class="router"></router-outlet>

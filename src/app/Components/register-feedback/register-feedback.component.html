@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h3>Queremos escuchar tu opinión</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="ticket"><strong>Ticket</strong></label>
+            <input type="text" name="ticket" id="ticket" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <app-estrellas
+              [estrellas]="0"
+              (changeStar)="onChangeStar($event)"
+            ></app-estrellas>
+          </div>
+          <div class="form-group">
+            <label for="opinion"><strong>Comentarios</strong></label>
+            <textarea type="text" name="opinion" id="opinion" class="form-control" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="card-footer d-flex">
+          <button class="btn send-button" (click)="registerFeedback()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

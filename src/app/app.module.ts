@@ -29,6 +29,8 @@ import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agreg
 import { EncargadoModule } from './Components/encargado/encargado.module';
 import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
 import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
+import { RegisterFeedbackComponent } from './Components/register-feedback/register-feedback.component';
+import { EstrellasComponent } from './Components/register-feedback/estrellas/estrellas.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ListadoTicketComponent } from './Components/ticket/listado-ticket/lista
     DetalleTicketComponent,
     AgregarTicketComponent,
     ConsultaTickerEstadoComponent,
-    ListadoTicketComponent
+    ListadoTicketComponent,
+    RegisterFeedbackComponent,
+    EstrellasComponent
   ],
   imports: [
     BrowserModule,

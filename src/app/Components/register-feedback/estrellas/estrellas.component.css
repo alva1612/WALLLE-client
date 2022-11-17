@@ -1,0 +1,18 @@
+.star-container {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.star {
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+.star-hover {
+  opacity: 0.5 !important;
+  transition: all 0.2s;
+}
+.active-star {
+  color: goldenrod;
+}

@@ -47,4 +47,12 @@ export class TicketService {
   }
 
 
+  registrarFeedback(idTicket: number, estrellas: number, opinion: string): Observable<any> {
+    const params = new HttpParams()
+      .append('id', idTicket)
+      .append('star', estrellas)
+      .append('opinion', opinion)
+    return this.http.post(this.baseUrlTicket + "/actualizarOpinionEstrella", {}, {params})
+  }
+
 }
