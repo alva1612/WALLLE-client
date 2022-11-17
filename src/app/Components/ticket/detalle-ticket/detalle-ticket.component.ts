@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Ticket } from 'src/app/Models/Models';
+import { Estado, Ticket } from 'src/app/Models/Models';
+import { TokenService } from 'src/app/security/token.service';
 import { TicketService } from 'src/app/services/ticket.service';
+import { UtilService } from 'src/app/services/util.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,12 +14,27 @@ import Swal from 'sweetalert2';
 export class DetalleTicketComponent implements OnInit {
 
   ticket: Ticket = {}
-
-  constructor(private activateRoute: ActivatedRoute, private ticketService: TicketService) { }
+  estados: Estado[] = []
+  selectedState: Estado = {} as Estado
+  ableToChangeState: boolean = false
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private ticketService: TicketService,
+    private _utilService: UtilService,
+    private _tokenService: TokenService
+    ) {
+      console.log(_tokenService.roles)
+      if (_tokenService.roles.some(rol => rol.toLowerCase()==='administrador'))
+        this.ableToChangeState = true
+    }
 
   ngOnInit(): void {
     let id = this.activateRoute.snapshot.paramMap.get('id');
     this.traerTicker(id);
+
+    this._utilService.listaEstado().subscribe(estados => {
+      this.estados = estados
+    })
   }
 
   traerTicker(id:any){
@@ -31,6 +48,7 @@ export class DetalleTicketComponent implements OnInit {
       } else {
         console.log(x)
         this.ticket = x;
+        this.selectedState.id_estado = Number(this.ticket.estado?.id_estado)?? 0
       }
     })
   }
@@ -76,5 +94,17 @@ export class DetalleTicketComponent implements OnInit {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     var strTime = hours + ":" + minutes + " " + ampm;
     return strTime;
+  }
+
+  changeSelectedState() {
+    const selected = document.getElementById('estado') as HTMLSelectElement
+    this.selectedState.id_estado = Number(selected.value)
+  }
+
+  changeTicketState() {
+    this.ticketService.cambiaEstadoPorTicket(this.selectedState.id_estado, this.ticket.idTicket ?? -1)
+      .subscribe((res: any) => {
+        Swal.fire(res.mensaje)
+      })
   }
 }

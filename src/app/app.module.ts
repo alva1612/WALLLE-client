@@ -46,7 +46,7 @@ import { EstrellasComponent } from './Components/register-feedback/estrellas/est
     ConsultaTickerEstadoComponent,
     ListadoTicketComponent,
     RegisterFeedbackComponent,
-    EstrellasComponent
+    EstrellasComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,10 @@ export class TicketService {
     return this.http.post(baseUrlAutor, data);
   }
 
+  listarTodos(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(baseUrlAutor + "/listarTickets");
+  }
+
   listar(id:string): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(baseUrlAutor + "/listarPorEstadoTrabajador/1/" + id);
   }
@@ -53,6 +57,11 @@ export class TicketService {
       .append('star', estrellas)
       .append('opinion', opinion)
     return this.http.post(this.baseUrlTicket + "/actualizarOpinionEstrella", {}, {params})
+  }
+
+  cambiaEstadoPorTicket(idEstado: number, idTicket: number){
+    const params = new HttpParams().set("id_estado", idEstado).set("id_ticket", idTicket)
+    return this.http.put(this.baseUrlTicket + `/actualizarEstado/${idEstado}/${idTicket}`, null)
   }
 
 }

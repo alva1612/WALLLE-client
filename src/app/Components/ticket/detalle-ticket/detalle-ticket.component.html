@@ -17,8 +17,24 @@
             <div class="container-estado">
                 <p class="subtitle">Estado</p>
                 <div class="estado">
-                    <div class="circle"></div>
-                    <p>{{ticket.estado?.descripcion}}</p>
+                    <div class="circle" [ngClass]="{
+                      'no-iniciado': selectedState.id_estado === 1,
+                      'en-proceso': selectedState.id_estado === 2,
+                      'finalizado': selectedState.id_estado === 3
+                    }"></div>
+                    <!-- <p>{{ticket.estado?.descripcion}}</p> -->
+                    <select name="estado" id="estado" class="form-select" style="max-width: 180px;margin-left: 5px;"
+                      (change)="changeSelectedState()"
+                      [disabled]="!ableToChangeState"
+                      >
+                      <option *ngFor="let estado of estados" [value]="estado.id_estado" [selected]="estado.id_estado === ticket.estado?.id_estado">
+                        {{estado.descripcion}}
+                      </option>
+                    </select>
+                    <button *ngIf="ableToChangeState" class="btn send-button"
+                      style="color: white; margin-left: 5px;"
+                      (click)="changeTicketState()"
+                    >Cambiar Estado</button>
                 </div>
                 <p class="container-estado__fecha">el {{formatDate(ticket.fechaCreacion)}}</p>
             </div>
@@ -34,5 +50,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
