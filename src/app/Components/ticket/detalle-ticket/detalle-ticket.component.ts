@@ -29,8 +29,52 @@ export class DetalleTicketComponent implements OnInit {
           text: 'Ocurrió un error al intentar cargar el ticket',
         })
       } else {
+        console.log(x)
         this.ticket = x;
       }
     })
+  }
+
+  formatDate(date:string | undefined) {
+    if(date === undefined){
+      return ""
+    }
+    const MESES = [
+      "Ene.",
+      "Feb.",
+      "Mar.",
+      "Abr.",
+      "May.",
+      "Jun.",
+      "Jul.",
+      "Ago.",
+      "Sep.",
+      "Oct.",
+      "Nov.",
+      "Dic.",
+    ];
+    var dateString = new Date(date);
+    return (
+      "" +
+      dateString.getUTCDate() +
+      " de " +
+      MESES[dateString.getUTCMonth()] +
+      " " +
+      dateString.getUTCFullYear() +
+      " a las " +
+      this.formatAMPM(dateString)
+    );
+  }
+
+  formatAMPM(date: Date) {
+    var hours = date.getUTCHours();
+    var minutes: number | string = date.getUTCMinutes();
+    var seconds = date.getUTCSeconds();
+    var ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    var strTime = hours + ":" + minutes + " " + ampm;
+    return strTime;
   }
 }

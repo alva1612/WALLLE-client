@@ -28,7 +28,7 @@ import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detal
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { EncargadoModule } from './Components/encargado/encargado.module';
 import { ConsultaTickerEstadoComponent } from './components/consulta-ticker-estado/consulta-ticker-estado.component';
-import { ListadoTicketComponent } from './Components/listado-tickets/listado-ticket.component';
+import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
 
 @NgModule({
   declarations: [
