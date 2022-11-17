@@ -42,4 +42,9 @@ export class TicketService {
     return this.http.get(this.baseUrlTicket + "/actualizarTrabajadores/" + id_trabajador + "/" + idticket)
   }
 
+  eliminaDocente(idTicket : number): Observable<any>{
+    return this.http.delete(this.baseUrlTicket + "/eliminaTicket/" + idTicket);
+  }
+
+
 }
