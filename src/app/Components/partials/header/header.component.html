@@ -1,12 +1,11 @@
-<nav>
+<nav *ngIf="isLogged">
   <div class="header-left">
     <div id="logo">
       <img src="../../../assets/logo.png" alt="">
     </div>
     <div class="menu-links">
-      <a href="" class="nav-item">Inicio</a>
-      <a href="" class="nav-item">Tickets</a>
-      <a href="" class="nav-item">Equipo</a>
+      <a [routerLink]="['/']" class="nav-item">Inicio</a>
+      <a [routerLink]="['/agregarTicket']" class="nav-item">Tickets</a>
     </div>
   </div>
   <div class="header-right">

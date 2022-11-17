@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/security/token.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
   nombreUsuario = "";
   rol : string = "";
 
-  constructor(private tokenService: TokenService) { }
+  constructor(private tokenService: TokenService,
+    private _router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -35,7 +37,9 @@ export class HeaderComponent implements OnInit {
 
   logOut(): void{
     this.tokenService.logOut();
-    window.location.reload();
+    this._router.navigate(['/login'])
+    this.isLogged = false
+
   }
 
 }
