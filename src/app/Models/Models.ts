@@ -45,3 +45,9 @@ export interface Urgencia {
     id_urgencia: number;
     descripcion:string;
 }
+
+export interface Feedback {
+  id_ticket: number,
+  estrellas: number,
+  opinion: string
+}

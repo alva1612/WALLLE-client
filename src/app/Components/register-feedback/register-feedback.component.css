@@ -1,0 +1,14 @@
+
+.send-button {
+background-color: var(--primary-cl-dark);
+}
+button:hover {
+  opacity: 0.8;
+}
+
+button, button:hover {
+  color: white;
+  width: clamp(100px, 30%, 400px);
+  margin: auto;
+}
+

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="star-container">
+    <h3 *ngFor="let star of arrStars;" class="star" [ngClass]="{
+      'active-star': star <= estrellas,
+      'star-hover': star <= startHovered,
+      'inactive-star': star > estrellas
+    }"
+      (mouseover)="calculateHoverEffect(star)"
+      (mouseout)="resetHoverEffect()"
+      (click)="changeStarSelected(star)"
+    >★</h3>
+    </div>
+  </div>
+</div>

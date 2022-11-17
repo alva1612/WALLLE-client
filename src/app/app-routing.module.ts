@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { EncargadoMainComponent } from './Components/encargado/encargado-main/encargado-main.component';
 import { IndexComponent } from './Components/index/index.component';
+import { RegisterFeedbackComponent } from './Components/register-feedback/register-feedback.component';
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
 import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
@@ -15,6 +17,7 @@ const routes: Routes = [
   { path: 'detalleTicket/:id', component: DetalleTicketComponent },
   {path: 'encargado/encargado-main', component: EncargadoMainComponent},
   {path: 'listadoTicket', component: ListadoTicketComponent},
+  {path: 'feedback', component: RegisterFeedbackComponent}
 ];
 
 
