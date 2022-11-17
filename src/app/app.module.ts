@@ -9,7 +9,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { IndexComponent } from './Components/index/index.component';
 import { HeaderComponent } from './Components/partials/header/header.component';
 import { FooterComponent } from './Components/partials/footer/footer.component';
 import { EncargadoMainComponent } from './Components/encargado/encargado-main/encargado-main.component';
@@ -37,7 +36,6 @@ import { EstrellasComponent } from './Components/register-feedback/estrellas/est
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    IndexComponent,
     HeaderComponent,
     FooterComponent,
     SideMenuComponent,

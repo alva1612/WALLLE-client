@@ -17,6 +17,8 @@ export class DetalleTicketComponent implements OnInit {
   estados: Estado[] = []
   selectedState: Estado = {} as Estado
   ableToChangeState: boolean = false
+  trabajadorAsignado: number = -1
+
   constructor(
     private activateRoute: ActivatedRoute,
     private ticketService: TicketService,
@@ -24,8 +26,22 @@ export class DetalleTicketComponent implements OnInit {
     private _tokenService: TokenService
     ) {
       console.log(_tokenService.roles)
-      if (_tokenService.roles.some(rol => rol.toLowerCase()==='administrador'))
+      if (this.isAbleToChangeState)
         this.ableToChangeState = true
+    }
+
+    get tokenData() {return this._tokenService}
+
+    get isAbleToChangeState(): boolean {
+     return this._tokenService.roles.some(rol => {
+        if (rol === 'administrador')
+          return true
+          console.log(this.tokenData.getUserId(), 'IDD')
+          console.log(this.trabajadorAsignado, 'ID')
+        if (rol === 'tecnico' && this.trabajadorAsignado === this.tokenData.getUserId())
+          return true
+        return false
+      })
     }
 
   ngOnInit(): void {
@@ -48,6 +64,12 @@ export class DetalleTicketComponent implements OnInit {
       } else {
         console.log(x)
         this.ticket = x;
+        this.trabajadorAsignado = x.idTrabajador
+        console.log(this.isAbleToChangeState)
+
+        console.log(x.idTrabajador, this.tokenData.getUserId())
+        if (x.idTrabajador == this._tokenService.getUserId())
+          this.ableToChangeState = true
         this.selectedState.id_estado = Number(this.ticket.estado?.id_estado)?? 0
       }
     })

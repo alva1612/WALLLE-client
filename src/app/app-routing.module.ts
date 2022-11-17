@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { EncargadoMainComponent } from './Components/encargado/encargado-main/encargado-main.component';
-import { IndexComponent } from './Components/index/index.component';
 import { RegisterFeedbackComponent } from './Components/register-feedback/register-feedback.component';
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';

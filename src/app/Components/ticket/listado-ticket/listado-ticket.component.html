@@ -10,7 +10,7 @@
         <div class="col-md-4">
             <select     id="id_sel_trabajador" name="selected" class="form-control" [(ngModel)]="ticket2.trabajador!.id_trabajador">
                 <option value="6"> [Seleccione] </option>
-                <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}"> 
+                <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}">
                             {{ aux.nombres }}
                 </option>
             </select>
@@ -18,7 +18,7 @@
         <div class="col-md-4">
             <select     id="id_sel_trabajador" name="selected" class="form-control" [(ngModel)]="ticket2.estado!.id_estado">
                 <option value="1"> [Seleccione] </option>
-                <option *ngFor="let est of estados" value="{{ est.id_estado }}"> 
+                <option *ngFor="let est of estados" value="{{ est.id_estado }}">
                             {{ est.descripcion }}
                 </option>
             </select>
@@ -26,7 +26,7 @@
         <div class="col-md-2">
             <button type="button" (click)="consulta()" class="btn btn-primary btn-sm" id="id_btn_filtrar" style="width: 150px">Filtrar</button>
         </div>
-     
+
     </div>
 
     <div class="col-md-23 color-letra" style="margin-top: 3%">
@@ -43,9 +43,9 @@
                                 <th style="width: 20%">Titulo</th>
                                 <th style="width: 20%">Descripcion</th>
                                 <th style="width: 10%">Estado</th>
-                                <th style="width: 20%">Asignacion tecnico</th>
+                                <th style="width: 20%" *ngIf="isAdmin">Asignacion tecnico</th>
                                 <th style="width: 20%">Botones</th>
-                          
+
                                 <!-- <th style="width: 15%"></th>    -->
                             </tr>
                         </thead>
@@ -58,17 +58,17 @@
                                 <td>{{x.titulo}}</td>
                                 <td>{{x.descripcion}}</td>
                                 <td>{{x.estado!.descripcion}}</td>
-                                <td>
-                                   
+                                <td *ngIf="isAdmin">
+
                                     <div class="custom-control custom-switch" style="padding-right: 5px;">
                                         <!-- <input type="checkbox" class="custom-control-input" id="idEstado_{{x.idDocente}}" name="estado" [checked]="x.estado==1?true:false" (change)="cambiaEstado(x)" />      -->
                                         <select     id="id_sel_trabajador_{{x.idTicket}}" name="selected_{{x.idTicket}}" class="form-control" [(ngModel)]="ticket.trabajador!.id_trabajador" (change)="actualiza3(x)">
                                             <option value="-1"> [Seleccione] </option>
-                                            <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}"> 
+                                            <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}">
                                                         {{ aux.nombres }}
                                             </option>
                                         </select>
-                                      </div> 
+                                      </div>
                                     </td>
                                 <td>
                                     <div style="display: flex;">
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                                 </td>
-                               
+
                             </tr>
                         </tbody>
                     </table>
@@ -93,5 +93,4 @@
 
 
 
-    
-  
+
