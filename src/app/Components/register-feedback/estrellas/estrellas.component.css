@@ -1,7 +1,6 @@
 .star-container {
   display: flex;
   justify-content: center;
-  cursor: pointer;
 }
 
 .star {
@@ -10,6 +9,7 @@
   padding: 2px 5px;
 }
 .star-hover {
+  cursor: pointer;
   opacity: 0.5 !important;
   transition: all 0.2s;
 }
