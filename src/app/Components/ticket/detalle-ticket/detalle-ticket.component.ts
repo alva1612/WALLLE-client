@@ -34,7 +34,7 @@ export class DetalleTicketComponent implements OnInit {
 
     get isAbleToChangeState(): boolean {
      return this._tokenService.roles.some(rol => {
-        if (rol === 'administrador')
+        if (rol === 'administrador' )
           return true
           console.log(this.tokenData.getUserId(), 'IDD')
           console.log(this.trabajadorAsignado, 'ID')

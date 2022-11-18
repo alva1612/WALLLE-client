@@ -56,7 +56,7 @@ export class AppComponent {
 
     // console.log("probando el idk3 " + idk3)
 
-    if(window.location.href == "http://localhost:4200/agregarTicket" || idk == idk2 + idk3 && window.location.href != "http://localhost:4200/"){
+    if(window.location.href == "http://localhost:4200/agregarTicket" || idk == idk2 + idk3 && window.location.href != "http://localhost:4200/" || window.location.href == "http://localhost:4200/feedback"){
 
 
 
