@@ -10,3 +10,6 @@ tr{
 td{
     color: black !important;
 }
+table {
+  margin-bottom: 100px;
+}

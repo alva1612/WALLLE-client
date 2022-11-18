@@ -25,6 +25,8 @@ export class EstrellasComponent implements OnInit {
     this.startHovered = 0
   }
   changeStarSelected(number:number) {
+    if (this.isDisabled)
+      return
     this.estrellas = number
     this.changeStar.emit(number)
   }
