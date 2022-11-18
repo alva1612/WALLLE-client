@@ -3,7 +3,7 @@
     <div class="star-container">
     <h3 *ngFor="let star of arrStars;" class="star" [ngClass]="{
       'active-star': star <= estrellas,
-      'star-hover': star <= startHovered,
+      'star-hover': star <= startHovered && !isDisabled,
       'inactive-star': star > estrellas
     }"
       (mouseover)="calculateHoverEffect(star)"

@@ -10,6 +10,7 @@ export class EstrellasComponent implements OnInit {
   @Input() estrellas: number = 0
   arrStars: any[] = [1,2,3,4,5]
   startHovered: number = 0
+  @Input() isDisabled: boolean = false
   @Output() changeStar: EventEmitter<number> = new EventEmitter<number>()
 
   constructor() { }
