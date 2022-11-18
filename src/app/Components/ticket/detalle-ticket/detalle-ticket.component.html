@@ -12,6 +12,7 @@
                 <p class="container-estado__fecha">Creado el {{formatDate(ticket.fechaCreacion)}}</p>
             </div>
             <p>{{ticket.descripcion}}</p>
+            <app-estrellas [estrellas]="ticket.estrellas || 0" [isDisabled]="true"></app-estrellas>
         </div>
         <div style="flex: 0.4">
             <div class="container-estado">
