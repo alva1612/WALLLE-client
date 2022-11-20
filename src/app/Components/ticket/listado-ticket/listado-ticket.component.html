@@ -7,9 +7,9 @@
     <br>
 
     <div class="row" style="height: 80px">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngIf=" eliminar">
             <select     id="id_sel_trabajador" name="selected" class="form-control" [(ngModel)]="ticket2.trabajador!.id_trabajador">
-                <option value="6"> [Seleccione] </option>
+                <option value="-1"> [Seleccione] </option>
                 <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}">
                             {{ aux.nombres }}
                 </option>
