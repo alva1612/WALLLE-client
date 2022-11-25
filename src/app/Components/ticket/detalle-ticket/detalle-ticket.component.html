@@ -9,7 +9,7 @@
             <div style="display: flex; flex-direction: column;">
                 <!-- <p style="margin-right: 20px;">Creado por {{ticket.usuario?.nombres}} {{ticket.usuario?.apellidos}} </p> -->
                 <p style="font-weight: bold;margin: 0px 0px 5px 0px;">Urgencia: {{ticket.urgencia?.descripcion}}</p>
-                <p class="container-estado__fecha">Creado el {{formatDate(ticket.fechaCreacion)}}</p>
+                <p class="container-estado__fecha">Creado el {{formatDate(ticket.fecha_creacion)}}</p>
             </div>
             <p>{{ticket.descripcion}}</p>
             <app-estrellas [estrellas]="ticket.estrellas || 0" [isDisabled]="true"></app-estrellas>
@@ -37,13 +37,13 @@
                       (click)="changeTicketState()"
                     >Cambiar Estado</button>
                 </div>
-                <p class="container-estado__fecha">el {{formatDate(ticket.fechaCreacion)}}</p>
+                <!-- <p class="container-estado__fecha">el {{formatDate(ticket.fechaCreacion)}}</p> -->
             </div>
             <div *ngIf="ticket.trabajador !== null">
                 <div class="container-trabajador">
                     <p class="subtitle">Trabajador</p>
                     <p>{{ticket.trabajador?.nombres}} {{ticket.trabajador?.apellidos}}</p>
-                    <p>{{ticket.trabajador?.usuario}}</p>
+                    <!-- <p>{{ticket.trabajador?.usuario}}</p> -->
                     <span>Correo:</span>
                     <p>{{ticket.trabajador?.correo}}</p>
                     <p>{{ticket.trabajador?.id_rol}}</p>

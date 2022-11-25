@@ -28,6 +28,8 @@ export class ListadoTicketComponent implements OnInit {
   isAdmin: boolean = false;
   seleccionados:number = 1;
 
+  idtrabajador:number =  0;
+
      //
     //  dificultad: string[] = [];;
     //  estado: string[] = [];;
@@ -131,7 +133,7 @@ export class ListadoTicketComponent implements OnInit {
     id_ticket: 0,
     idTicket: 0,
 	trabajador :  {
-    id_trabajador: 6,
+    id_trabajador: -1,
     id_rol:"",
     documento:"",
     nombres:"",
@@ -225,12 +227,16 @@ actualiza3(obj: Ticket){
 
 consulta(){
 
+  const id =  sessionStorage.getItem('AuthUserId');
+
+   this.idtrabajador = id !== null ? parseFloat(id) : 0;
 
   // this.ticket.trabajador!.id_trabajador
+// console.log("prueba" + this.idtrabajador)
 
-  console.log(">>> consulta >> " + this.ticket2.trabajador!.id_trabajador + " este sera el idestado = " + this.ticket.estado!.id_estado);
+  // console.log(">>> consulta >> " + this.ticket2.trabajador!.id_trabajador == -1 ? this.idtrabajador : this.ticket2.trabajador!.id_trabajador  + " este sera el idestado = " + this.ticket2.estado!.id_estado);
 
-  this.ticketService.listarTrabajadorEstado(this.ticket2.trabajador!.id_trabajador, this.ticket2.estado!.id_estado).subscribe(x => {
+  this.ticketService.listarTrabajadorEstado(this.ticket2.trabajador!.id_trabajador == -1 ? this.idtrabajador : this.ticket2.trabajador!.id_trabajador  , this.ticket2.estado!.id_estado).subscribe(x => {
 
     this.data2 = x
 

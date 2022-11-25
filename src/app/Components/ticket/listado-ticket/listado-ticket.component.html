@@ -7,9 +7,9 @@
     <br>
 
     <div class="row" style="height: 80px">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngIf=" eliminar">
             <select     id="id_sel_trabajador" name="selected" class="form-control" [(ngModel)]="ticket2.trabajador!.id_trabajador">
-                <option value="6"> [Seleccione] </option>
+                <option value="-1"> [Seleccione] </option>
                 <option *ngFor="let aux of trabajadores" value="{{ aux.id_trabajador }}">
                             {{ aux.nombres }}
                 </option>
@@ -94,7 +94,8 @@
         </div>
     </div>
     <!-- <iframe src='https://webchat.botframework.com/embed/demobotwalle?s=YOUR_SECRET_HERE'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe> -->
-
+   
+    <iframe src='https://webchat.botframework.com/embed/demobotwalle?s=Kcc2tNuVTAY.ViNjJbw4nSIDRDfc7K2NyVFI5aFGOEwU1C7jdV65sIc'  style='min-width: 400px; min-height: 500px; position: absolute; z-index: 11;margin-left: -325px;'></iframe>
 
 
 
