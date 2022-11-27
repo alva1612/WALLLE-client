@@ -30,6 +30,7 @@ import { ConsultaTickerEstadoComponent } from './Components/consulta-ticker-esta
 import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
 import { RegisterFeedbackComponent } from './Components/register-feedback/register-feedback.component';
 import { EstrellasComponent } from './Components/register-feedback/estrellas/estrellas.component';
+import { ListadoTrabajadorComponent } from './Components/listado-Trabajador/listado-trabajador.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { EstrellasComponent } from './Components/register-feedback/estrellas/est
     ListadoTicketComponent,
     RegisterFeedbackComponent,
     EstrellasComponent,
+    ListadoTrabajadorComponent,
   ],
   imports: [
     BrowserModule,

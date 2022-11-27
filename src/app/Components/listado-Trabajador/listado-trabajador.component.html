@@ -1,0 +1,53 @@
+
+<div class="container" >
+
+
+<button type="button" class="btn btn-primary">Nuevo Trabajador</button>
+<br>
+<br>
+    <h5 style="color: black ;">Mantenimiento de Trabajador</h5>
+
+    <br>
+    <br>
+
+    
+
+    <div class="col-md-23 color-letra">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+
+                    <table id="id_table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                
+                                <th style="width: 30%">Usuario</th>
+                                <th style="width: 30%">Nombre</th>
+                                <th style="width: 20%">Apellido</th>
+                                <th style="width: 20%">Correo</th>
+                                <th style="width: 10%">Rol</th>
+                            
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let x of trabajadores2">
+                              
+
+                                <td>{{x.usuario}}</td>
+                                <td>{{x.nombres}}</td>
+                                <td>{{x.apellidos}}</td>
+                                <td>{{x.correo}}</td>
+                                <td>{{x.rol!.descripcion}}</td>
+                             
+                  
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    

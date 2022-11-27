@@ -7,6 +7,7 @@ import { RegisterFeedbackComponent } from './Components/register-feedback/regist
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
 import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
+import { ListadoTrabajadorComponent } from './Components/listado-Trabajador/listado-trabajador.component';
 import { BotComponent } from './Components/bot/bot.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'encargado/encargado-main', component: EncargadoMainComponent},
   {path: 'listadoTicket', component: ListadoTicketComponent},
   {path: 'feedback', component: RegisterFeedbackComponent},
+  {path: 'mantenimientoTrabajador', component: ListadoTrabajadorComponent},
   {path: 'cliente', component: BotComponent}
 ];
 
