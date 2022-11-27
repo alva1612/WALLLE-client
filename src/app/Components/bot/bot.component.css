@@ -4,12 +4,7 @@
     color: white;
 } */
 
-tr{
-    color:black !important;
-}
-td{
-    color: black !important;
-}
-table {
-  margin-bottom: 100px;
+body{
+    background-color: aqua;
+
 }

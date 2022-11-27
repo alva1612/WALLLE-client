@@ -41,9 +41,31 @@ export interface Trabajador {
 
 
 }
+
+export interface Trabajador2 {
+
+    id_trabajador?: number;
+    rol? :Rol
+    documento?:string;
+    nombres?:string;
+    apellidos?:string;
+    correo?:string;
+    descripcion?:string;
+    usuario?:string;
+  
+
+
+}
+
 export interface Urgencia {
 
     id_urgencia: number;
+    descripcion:string;
+}
+
+export interface Rol {
+
+    id_rol: number;
     descripcion:string;
 }
 
