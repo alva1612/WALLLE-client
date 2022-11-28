@@ -16,7 +16,7 @@ import { TokenService } from 'src/app/security/token.service';
 })
 export class BotComponent implements OnInit {
 
-  
+  showBot: boolean = false
 
   constructor(
     private ticketService:TicketService,
@@ -24,12 +24,15 @@ export class BotComponent implements OnInit {
     private router: Router,
     private _tokenService: TokenService
     ) {
-  
+
   }
 
   ngOnInit(): void {
   }
 
+  toggleBot() {
+      this.showBot = !this.showBot
+  }
 
 
   };
