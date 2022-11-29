@@ -24,6 +24,8 @@ export class TrabajadorService {
   }
 
   actualizaTrabajador(trabajador :Trabajador2): Observable<any>{
+
+    console.log(trabajador)
     return this.http.put(baseUrlTrabajador + "/actualizarTrabajador", trabajador);
   }
 

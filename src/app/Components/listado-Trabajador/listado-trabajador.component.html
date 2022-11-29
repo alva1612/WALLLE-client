@@ -65,18 +65,30 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="content" >
+                    <form class="content" [formGroup]="formsActualiza" >
                         <div class="submit-form">
 
                             <div  class="row">
                                 <div class="col-lg-6">
                                     <label for="id_act_nombre">Nombre</label>
-                                    <input type="text" [(ngModel)]="trabajador.nombres" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_act_nombre" />
+                                    <input type="text" formControlName="validaNombre" [(ngModel)]="trabajador.nombres" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_act_nombre" />
+                                    <div *ngIf="submitted && formsActualiza.controls.validaNombre.errors" class="invalid">       
+                                        <ul>
+                                            <li>El nombre es obligatorio</li>    
+                                            <li>El nombre es de 3 a 30 caracteres</li>    
+                                        </ul>
+                                    </div>
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <label for="id_act_nombre">Apellidos</label>
-                                    <input type="text" [(ngModel)]="trabajador.apellidos" placeholder="Ingrese el apellido" class="form-control" name="apellido" id="id_act_apellido" />
+                                    <label for="id_act_nombre" >Apellidos</label>
+                                    <input type="text" formControlName="validaApellido" [(ngModel)]="trabajador.apellidos" placeholder="Ingrese el apellido" class="form-control" name="apellido" id="id_act_apellido" />
+                                    <div *ngIf="submitted && formsActualiza.controls.validaApellido.errors" class="invalid">       
+                                        <ul>
+                                            <li>El apellido es obligatorio</li>    
+                                            <li>El apellido es de 3 a 40 caracteres</li>    
+                                        </ul>
+                                    </div>
                                 </div>
 
                             </div>
@@ -84,11 +96,23 @@
 
                                 <div class="col-lg-6">
                                     <label for="id_act_dni">DNI</label>
-                                    <input type="text" [(ngModel)]="trabajador.documento"  placeholder="Ingrese Documento" class="form-control" name="Documento" id="id_act_documento" />
+                                    <input type="text" formControlName="validaDNI" [(ngModel)]="trabajador.documento"  placeholder="Ingrese Documento" class="form-control" name="Documento" id="id_act_documento" />
+                                    <div *ngIf="submitted && formsActualiza.controls.validaDNI.errors" class="invalid">       
+                                        <ul>
+                                            <li>El DNI es obligatorio</li>    
+                                            <li>El DNI es de 8 caracteres</li>    
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="id_act_dni">Correo</label>
-                                    <input type="text" [(ngModel)]="trabajador.correo"  placeholder="Ingrese Correo" class="form-control" name="correo" id="id_act_correo" />
+                                    <input type="text" formControlName="validaCorreo" [(ngModel)]="trabajador.correo"  placeholder="Ingrese Correo" class="form-control" name="correo" id="id_act_correo" />
+                                    <div *ngIf="submitted && formsActualiza.controls.validaCorreo.errors" class="invalid">       
+                                        <ul>
+                                            <li>El correo es obligatorio</li>    
+                                          
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                           
@@ -98,34 +122,52 @@
 
                             <div class="col-lg-6">
                                 <label for="id_act_dni">Descripción</label>
-                                <input type="text" [(ngModel)]="trabajador.descripcion"  placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="id_act_descripcion" />
+                                <input type="text" formControlName="validaDescripcion" [(ngModel)]="trabajador.descripcion"  placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="id_act_descripcion" />
+                                <div *ngIf="submitted && formsActualiza.controls.validaDescripcion.errors" class="invalid">       
+                                    <ul>
+                                        <li>La descripción es obligatorio</li>    
+                                      
+                                    </ul>
+                                </div>
                             </div>
                            
 
                             <div class="col-lg-6">
                                 <label for="id_act_dni">Iniciales</label>
-                                <input type="text" [(ngModel)]="trabajador.usuario"  placeholder="Ingrese Iniciales" class="form-control" name="iniciales" id="id_act_iniciales" />
+                                <input type="text" formControlName="validaIniciales" [(ngModel)]="trabajador.usuario"  placeholder="Ingrese Iniciales" class="form-control" name="iniciales" id="id_act_iniciales" />
+                                <div *ngIf="submitted && formsActualiza.controls.validaIniciales.errors" class="invalid">       
+                                    <ul>
+                                        <li>Las iniciales es obligatorio</li>    
+                                      
+                                    </ul>
+                                </div>
                             </div>
 
                             </div>
 
                             <div  class="row">
 
-                            <div class="col-lg-6">
+                            <!-- <div class="col-lg-6" style="display: none;">
                                 <label for="id_act_dni">Contraseña</label>
                                 <input type="text" [(ngModel)]="trabajador.password"  placeholder="Ingrese Contraseña" class="form-control" name="contraseña" id="id_act_constraseña" />
-                            </div>
+                            </div> -->
     
     
                           
                                 <div class="col-lg-6">
                                     <label for="id_act_rol">Rol</label>
-                                    <select [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
+                                    <select  formControlName="validaRol" [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
                                         <option value="-1"> [Seleccione] </option>
                                         <option *ngFor="let aux of roles" value="{{ aux.idRol }}">
                                             {{ aux.descripcion }}
                                         </option> 
                                     </select>
+                                    <div *ngIf="submitted && formsActualiza.controls.validaRol.errors" class="invalid">       
+                                        <ul>
+                                            <li>Las iniciales es obligatorio</li>    
+                                          
+                                        </ul>
+                                    </div>
                             
     
                              
@@ -143,7 +185,7 @@
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
 
-                                    <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control">Actualizar</button>
+                                    <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" [disabled]="submitted && formsActualiza.invalid">Actualizar</button>
 
                                     
                                     <!-- <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button> -->
@@ -172,18 +214,30 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="content" >
+                    <form class="content"  [formGroup]="formsRegistra">
                         <div class="submit-form">
 
                             <div  class="row">
                                 <div class="col-lg-6">
                                     <label for="id_act_nombre">Nombre</label>
-                                    <input type="text" [(ngModel)]="trabajador.nombres" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_act_nombre" />
+                                    <input type="text" formControlName="validaNombre" [(ngModel)]="trabajador.nombres" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_act_nombre" />
+                                    <div *ngIf="submitted && formsRegistra.controls.validaNombre.errors" class="invalid">       
+                                        <ul>
+                                            <li>El nombre es obligatorio</li>    
+                                            <li>El nombre es de 3 a 30 caracteres</li>    
+                                        </ul>
+                                    </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <label for="id_act_nombre">Apellidos</label>
-                                    <input type="text" [(ngModel)]="trabajador.apellidos" placeholder="Ingrese el apellido" class="form-control" name="apellido" id="id_act_apellido" />
+                                    <input type="text" formControlName="validaApellido" [(ngModel)]="trabajador.apellidos" placeholder="Ingrese el apellido" class="form-control" name="apellido" id="id_act_apellido" />
+                                    <div *ngIf="submitted && formsRegistra.controls.validaApellido.errors" class="invalid">       
+                                        <ul>
+                                            <li>El apellido es obligatorio</li>    
+                                            <li>El apellido es de 3 a 40 caracteres</li>    
+                                        </ul>
+                                    </div>
                                 </div>
 
                             </div>
@@ -191,11 +245,23 @@
 
                                 <div class="col-lg-6">
                                     <label for="id_act_dni">DNI</label>
-                                    <input type="text" [(ngModel)]="trabajador.documento"  placeholder="Ingrese Documento" class="form-control" name="Documento" id="id_act_documento" />
+                                    <input type="text" formControlName="validaDNI" [(ngModel)]="trabajador.documento"  placeholder="Ingrese Documento" class="form-control" name="Documento" id="id_act_documento" />
+                                    <div *ngIf="submitted && formsRegistra.controls.validaDNI.errors" class="invalid">       
+                                        <ul>
+                                            <li>El DNI es obligatorio</li>    
+                                            <li>El DNI es de 8 caracteres</li>    
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="id_act_dni">Correo</label>
-                                    <input type="text" [(ngModel)]="trabajador.correo"  placeholder="Ingrese Correo" class="form-control" name="correo" id="id_act_correo" />
+                                    <input type="text" formControlName="validaCorreo" [(ngModel)]="trabajador.correo"  placeholder="Ingrese Correo" class="form-control" name="correo" id="id_act_correo" />
+                                    <div *ngIf="submitted && formsRegistra.controls.validaCorreo.errors" class="invalid">       
+                                        <ul>
+                                            <li>El correo es obligatorio</li>    
+                                          
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                           
@@ -205,13 +271,25 @@
 
                             <div class="col-lg-6">
                                 <label for="id_act_dni">Descripción</label>
-                                <input type="text" [(ngModel)]="trabajador.descripcion"  placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="id_act_descripcion" />
+                                <input type="text" formControlName="validaDescripcion" [(ngModel)]="trabajador.descripcion"  placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="id_act_descripcion" />
+                                <div *ngIf="submitted && formsRegistra.controls.validaDescripcion.errors" class="invalid">       
+                                    <ul>
+                                        <li>La descripción es obligatorio</li>    
+                                      
+                                    </ul>
+                                </div>
                             </div>
                            
 
                             <div class="col-lg-6">
                                 <label for="id_act_dni">Iniciales</label>
-                                <input type="text" [(ngModel)]="trabajador.usuario"  placeholder="Ingrese Iniciales" class="form-control" name="iniciales" id="id_act_iniciales" />
+                                <input type="text" formControlName="validaIniciales" [(ngModel)]="trabajador.usuario"  placeholder="Ingrese Iniciales" class="form-control" name="iniciales" id="id_act_iniciales" />
+                                <div *ngIf="submitted && formsRegistra.controls.validaIniciales.errors" class="invalid">       
+                                    <ul>
+                                        <li>Las iniciales es obligatorio</li>    
+                                      
+                                    </ul>
+                                </div>
                             </div>
 
                             </div>
@@ -220,19 +298,33 @@
 
                             <div class="col-lg-6">
                                 <label for="id_act_dni">Contraseña</label>
-                                <input type="text" [(ngModel)]="trabajador.password"  placeholder="Ingrese Contraseña" class="form-control" name="contraseña" id="id_act_constraseña" />
+                                <input type="text" formControlName="validaContrasena" [(ngModel)]="trabajador.password"  placeholder="Ingrese Contraseña" class="form-control" name="contraseña" id="id_act_constraseña" />
+                                <div *ngIf="submitted && formsRegistra.controls.validaContrasena.errors" class="invalid">
+                                    <ul>
+                                        <li>La contraseña es obligatorio</li>    
+                                     
+                                         
+                                    </ul>
+                                 </div>
                             </div>
     
     
                           
                                 <div class="col-lg-6">
                                     <label for="id_act_rol">Rol</label>
-                                    <select [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
+                                    <select formControlName="validaRol"
+                                     [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
                                         <option value="-1"> [Seleccione] </option>
                                         <option *ngFor="let aux of roles" value="{{ aux.idRol }}">
                                             {{ aux.descripcion }}
                                         </option> 
                                     </select>
+                                    <div *ngIf="submitted && formsRegistra.controls.validaRol.errors" class="invalid">       
+                                        <ul>
+                                            <li>Las iniciales es obligatorio</li>    
+                                          
+                                        </ul>
+                                    </div>
                             
     
                              
@@ -250,7 +342,7 @@
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
 
-                                    <button id="id_act_actualiza" (click)="registra()" class="btn btn-success form-control">Actualizar</button>
+                                    <button id="id_act_actualiza" (click)="registra()" class="btn btn-success form-control" [disabled]="submitted && formsRegistra.invalid" >Registrar</button>
 
                                     
                                     <!-- <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button> -->
