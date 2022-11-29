@@ -13,3 +13,16 @@ td{
 table {
   margin-bottom: 100px;
 }
+
+
+
+.error { 
+    color: blue;
+}
+
+.invalid {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 90%;
+    color: #dc3545;
+}

@@ -3,7 +3,8 @@ import { Ticket, Dificultad, Estado, Trabajador, Urgencia, Trabajador2, Rol  } f
 import { TrabajadorService } from 'src/app/services/trabajador.service';
 import { UtilService } from 'src/app/services/util.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -38,6 +39,31 @@ export class ListadoTrabajadorComponent implements OnInit {
 
   // data:Ticket[] = [];
 
+  emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  submitted = false;
+
+  formsRegistra = new FormGroup({
+    validaNombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,30}')]),
+    validaApellido: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,40}')]),
+    validaDNI: new FormControl('', [Validators.required,Validators.pattern('[0-9]{8}')]),
+    validaCorreo: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
+    validaDescripcion: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,100}')]),
+    validaIniciales: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,3}')]),
+    validaContrasena: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,30}')]),
+    validaRol: new FormControl('', [Validators.min(1)]),
+});
+
+formsActualiza  = new FormGroup({
+  validaNombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,30}')]),
+  validaApellido: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,40}')]),
+  validaDNI: new FormControl('', [Validators.required,Validators.pattern('[0-9]{8}')]),
+  validaCorreo: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
+  validaDescripcion: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,100}')]),
+  validaIniciales: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{1,4}')]),
+  // validaContrasena: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúÁÉÍÓÚñ0-9 ]{3,30}')]),
+  validaRol: new FormControl('', [Validators.min(1)]),
+});
+
 
 
 
@@ -56,8 +82,14 @@ export class ListadoTrabajadorComponent implements OnInit {
   }
 
   actualiza(){
-    console.log("ACTUALIZA TRABAJADOR")
-    console.log(this.trabajador)
+
+    this.submitted = true;
+
+    if (this.formsActualiza.invalid) {
+     return;
+   }
+   this.submitted = false;
+
     this.trabajadorService.actualizaTrabajador(this.trabajador).subscribe(
         x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
           if (result.isConfirmed) {
@@ -69,6 +101,18 @@ export class ListadoTrabajadorComponent implements OnInit {
 }
 
 registra(){
+
+  this.submitted = true;
+
+  //finaliza el método si hay un error
+  if (this.formsRegistra.invalid){
+       return;
+  }
+
+  this.submitted = false;
+  console.log(">>> registra >> ");
+  console.log(this.trabajador)
+
   this.trabajadorService.registraTrabajador(this.trabajador).subscribe(
       x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
         if (result.isConfirmed) {
