@@ -52,6 +52,7 @@ export interface Trabajador2 {
     correo?:string;
     descripcion?:string;
     usuario?:string;
+    password?:string;
   
 
 
@@ -65,7 +66,8 @@ export interface Urgencia {
 
 export interface Rol {
 
-    id_rol: number;
+   
+    idRol: number;
     descripcion:string;
 }
 

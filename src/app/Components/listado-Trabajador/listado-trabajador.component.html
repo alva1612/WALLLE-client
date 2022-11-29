@@ -2,7 +2,7 @@
 <div class="container" >
 
 
-<button type="button" class="btn btn-primary">Nuevo Trabajador</button>
+<button type="button" data-bs-toggle="modal" data-bs-target="#ModalRegistra" class="btn btn-primary">Nuevo Trabajador</button>
 <br>
 <br>
     <h5 style="color: black ;">Mantenimiento de Trabajador</h5>
@@ -27,6 +27,7 @@
                                 <th style="width: 20%">Apellido</th>
                                 <th style="width: 20%">Correo</th>
                                 <th style="width: 10%">Rol</th>
+                                <th style="width: 10%"></th>
                             
 
                             </tr>
@@ -40,6 +41,9 @@
                                 <td>{{x.apellidos}}</td>
                                 <td>{{x.correo}}</td>
                                 <td>{{x.rol!.descripcion}}</td>
+                                <td><button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="busca(x)" style="width: 90px" >Editar</button>
+                                    <!-- <button  type="button" data-toggle='modal' data-target="#idModalRegistrar" class='btn btn-primary btn-sm' style="width: 150px">Registrar</button> -->
+                                </td>
                              
                   
                             </tr>
@@ -50,4 +54,222 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualización de Trabajador</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="content" >
+                        <div class="submit-form">
+
+                            <div  class="row">
+                                <div class="col-lg-6">
+                                    <label for="id_act_nombre">Nombre</label>
+                                    <input type="text" [(ngModel)]="trabajador.nombres" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_act_nombre" />
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label for="id_act_nombre">Apellidos</label>
+                                    <input type="text" [(ngModel)]="trabajador.apellidos" placeholder="Ingrese el apellido" class="form-control" name="apellido" id="id_act_apellido" />
+                                </div>
+
+                            </div>
+                            <div  class="row">
+
+                                <div class="col-lg-6">
+                                    <label for="id_act_dni">DNI</label>
+                                    <input type="text" [(ngModel)]="trabajador.documento"  placeholder="Ingrese Documento" class="form-control" name="Documento" id="id_act_documento" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="id_act_dni">Correo</label>
+                                    <input type="text" [(ngModel)]="trabajador.correo"  placeholder="Ingrese Correo" class="form-control" name="correo" id="id_act_correo" />
+                                </div>
+                            </div>
+                          
+
+                           
+                            <div  class="row">
+
+                            <div class="col-lg-6">
+                                <label for="id_act_dni">Descripción</label>
+                                <input type="text" [(ngModel)]="trabajador.descripcion"  placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="id_act_descripcion" />
+                            </div>
+                           
+
+                            <div class="col-lg-6">
+                                <label for="id_act_dni">Iniciales</label>
+                                <input type="text" [(ngModel)]="trabajador.usuario"  placeholder="Ingrese Iniciales" class="form-control" name="iniciales" id="id_act_iniciales" />
+                            </div>
+
+                            </div>
+
+                            <div  class="row">
+
+                            <div class="col-lg-6">
+                                <label for="id_act_dni">Contraseña</label>
+                                <input type="text" [(ngModel)]="trabajador.password"  placeholder="Ingrese Contraseña" class="form-control" name="contraseña" id="id_act_constraseña" />
+                            </div>
     
+    
+                          
+                                <div class="col-lg-6">
+                                    <label for="id_act_rol">Rol</label>
+                                    <select [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
+                                        <option value="-1"> [Seleccione] </option>
+                                        <option *ngFor="let aux of roles" value="{{ aux.idRol }}">
+                                            {{ aux.descripcion }}
+                                        </option> 
+                                    </select>
+                            
+    
+                             
+                            </div> 
+
+                            </div>
+                            </div>
+
+
+
+                       
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+
+                                    <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control">Actualizar</button>
+
+                                    
+                                    <!-- <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalRegistra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Trabajador</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="content" >
+                        <div class="submit-form">
+
+                            <div  class="row">
+                                <div class="col-lg-6">
+                                    <label for="id_act_nombre">Nombre</label>
+                                    <input type="text" [(ngModel)]="trabajador.nombres" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_act_nombre" />
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label for="id_act_nombre">Apellidos</label>
+                                    <input type="text" [(ngModel)]="trabajador.apellidos" placeholder="Ingrese el apellido" class="form-control" name="apellido" id="id_act_apellido" />
+                                </div>
+
+                            </div>
+                            <div  class="row">
+
+                                <div class="col-lg-6">
+                                    <label for="id_act_dni">DNI</label>
+                                    <input type="text" [(ngModel)]="trabajador.documento"  placeholder="Ingrese Documento" class="form-control" name="Documento" id="id_act_documento" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="id_act_dni">Correo</label>
+                                    <input type="text" [(ngModel)]="trabajador.correo"  placeholder="Ingrese Correo" class="form-control" name="correo" id="id_act_correo" />
+                                </div>
+                            </div>
+                          
+
+                           
+                            <div  class="row">
+
+                            <div class="col-lg-6">
+                                <label for="id_act_dni">Descripción</label>
+                                <input type="text" [(ngModel)]="trabajador.descripcion"  placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="id_act_descripcion" />
+                            </div>
+                           
+
+                            <div class="col-lg-6">
+                                <label for="id_act_dni">Iniciales</label>
+                                <input type="text" [(ngModel)]="trabajador.usuario"  placeholder="Ingrese Iniciales" class="form-control" name="iniciales" id="id_act_iniciales" />
+                            </div>
+
+                            </div>
+
+                            <div  class="row">
+
+                            <div class="col-lg-6">
+                                <label for="id_act_dni">Contraseña</label>
+                                <input type="text" [(ngModel)]="trabajador.password"  placeholder="Ingrese Contraseña" class="form-control" name="contraseña" id="id_act_constraseña" />
+                            </div>
+    
+    
+                          
+                                <div class="col-lg-6">
+                                    <label for="id_act_rol">Rol</label>
+                                    <select [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
+                                        <option value="-1"> [Seleccione] </option>
+                                        <option *ngFor="let aux of roles" value="{{ aux.idRol }}">
+                                            {{ aux.descripcion }}
+                                        </option> 
+                                    </select>
+                            
+    
+                             
+                            </div> 
+
+                            </div>
+                            </div>
+
+
+
+                       
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+
+                                    <button id="id_act_actualiza" (click)="registra()" class="btn btn-success form-control">Actualizar</button>
+
+                                    
+                                    <!-- <button id="id_act_actualiza" (click)="actualiza()" class="btn btn-success form-control" style="width: 100px;">Actualizar</button> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+ 

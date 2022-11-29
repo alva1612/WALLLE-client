@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
-import { Dificultad, Estado, Trabajador, Urgencia } from '../Models/Models';
+import { Dificultad, Estado, Rol, Trabajador, Urgencia } from '../Models/Models';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 
@@ -28,6 +28,10 @@ export class UtilService {
 
     listaUrgencia():Observable<Urgencia[]>{
         return this.http.get<Urgencia[]>(baseUrlUtil+"/listaUrgencia");
+      }
+
+    listaRol():Observable<Rol[]>{
+        return this.http.get<Rol[]>(baseUrlUtil+"/listaRol");
       }
 
 

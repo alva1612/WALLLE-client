@@ -12,9 +12,32 @@ export class HeaderComponent implements OnInit {
   isLogged = false;
   nombreUsuario = "";
   rol : string = "";
+  ableToChangeState: boolean = true
 
   constructor(private tokenService: TokenService,
-    private _router: Router) { }
+    private _router: Router) { 
+      if (this.isAbleToChangeState){
+        console.log("entro aqui")
+        this.ableToChangeState = true
+      }
+    
+    }
+
+    get isAbleToChangeState(): boolean {
+      return this.tokenService.roles.some(rol => {
+         if (rol === 'administrador' ){
+          console.log("entro aqui")
+          return true
+         }else{
+          console.log("entro aqui en false")
+          return false
+         }
+        
+        
+           
+       
+       })
+     }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {

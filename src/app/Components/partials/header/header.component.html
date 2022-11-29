@@ -5,7 +5,7 @@
     </div>
     <div class="menu-links">
       <a [routerLink]="['/']" class="nav-item">Inicio</a>
-      <a [routerLink]="['/agregarTicket']" class="nav-item">Tickets</a>
+      <a *ngIf="ableToChangeState" [routerLink]="['/mantenimientoTrabajador']" class="nav-item">Mantenimiento de Trabajador</a>
     </div>
   </div>
   <div class="header-right">
