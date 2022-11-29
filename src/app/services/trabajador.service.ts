@@ -27,6 +27,9 @@ export class TrabajadorService {
     return this.http.put(baseUrlTrabajador + "/actualizarTrabajador", trabajador);
   }
 
+  registraTrabajador(trabajador :Trabajador2): Observable<any>{
+    return this.http.post(baseUrlTrabajador + "/registrarTrabajador", trabajador);
+  }
 
 
 

@@ -53,6 +53,10 @@ export class ListadoTrabajadorComponent implements OnInit {
     
       return this.trabajadores2 = x});
 
+      this.utilService.listaRol().subscribe(
+        response => this.roles = response
+    );
+
   }
 
   actualiza(){
@@ -72,6 +76,26 @@ export class ListadoTrabajadorComponent implements OnInit {
    
 
   
+
+}
+
+registra(){
+
+  console.log(">>> registra >> ");
+  console.log(this.trabajador)
+
+  this.trabajadorService.registraTrabajador(this.trabajador).subscribe(
+
+      x => Swal.fire('Mensaje', x.mensaje,'info')
+
+      
+
+  )
+
+  this.router.navigate(['/mantenimientoTrabajador']);
+ 
+
+
 
 }
 

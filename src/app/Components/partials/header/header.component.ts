@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   isLogged = false;
   nombreUsuario = "";
   rol : string = "";
-  ableToChangeState: boolean = false
+  ableToChangeState: boolean = true
 
   constructor(private tokenService: TokenService,
     private _router: Router) { 
