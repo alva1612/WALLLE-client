@@ -9,13 +9,139 @@
 </div> -->
 
 
-<iframe id="frame" name="iframe" style='min-width: 400px; min-height: 500px; position: absolute; z-index: 11;'></iframe>
+<iframe id="frame" name="iframe"
+  style='min-width: 400px;
+        position: absolute; z-index: 11; bottom: 100px;
+        right: 20px; border-radius: 20px;'
+  [ngClass]="{
+      'appear-bot': showBot
+    }"
+  class="bot-frame"></iframe>
 
 
 
 <script src="https://kit.fontawesome.com/56581ebb4c.js" crossorigin="anonymous"></script>
-<a href="https://webchat.botframework.com/embed/demobotwalle?s=Kcc2tNuVTAY.ViNjJbw4nSIDRDfc7K2NyVFI5aFGOEwU1C7jdV65sIc" target="iframe" class="float" >
+<a href="https://webchat.botframework.com/embed/demobotwalle?s=Kcc2tNuVTAY.ViNjJbw4nSIDRDfc7K2NyVFI5aFGOEwU1C7jdV65sIc" target="iframe"
+    class="float"
+    (click)="toggleBot()" >
     <i class="fa-brands fa-bots"></i>
 </a>
 
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Empresa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Información
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 bg-light rounded-3">
+  <div class="row pt-5">
+    <div class="col-3">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action">Leads</li>
+        <li class="list-group-item list-group-item-action">Leads</li>
+        <li class="list-group-item list-group-item-action">Clientes</li>
+        <li class="list-group-item list-group-item-action">Estadísticas</li>
+        <li class="list-group-item list-group-item-action">Clientes</li>
+        <li class="list-group-item list-group-item-action">Estadísticas</li>
+        <li class="list-group-item list-group-item-action">Leads</li>
+        <li class="list-group-item list-group-item-action">Clientes</li>
+        <li class="list-group-item list-group-item-action">Estadísticas</li>
+      </ul>
+    </div>
+    <div class="col-9 p-5 pt-1">
+      <h2>Leads</h2>
+      <hr>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row p-5 d-flex gap-5 pt-3">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Leads del mes</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Nuevos clientes</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Leads Rechazadas</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- <a class='flotante' href='#' ><img src="../../../assets/boton.jpg" border="0" style="width: 22%;"/></a> -->

@@ -26,11 +26,11 @@ import { ProdInterceptorService } from './interceptors/prod-interceptor.service'
 import { DetalleTicketComponent } from './Components/ticket/detalle-ticket/detalle-ticket.component';
 import { AgregarTicketComponent } from './Components/ticket/agregar-ticket/agregar-ticket.component';
 import { EncargadoModule } from './Components/encargado/encargado.module';
-import { ConsultaTickerEstadoComponent } from './Components/consulta-ticker-estado/consulta-ticker-estado.component';
 import { ListadoTicketComponent } from './Components/ticket/listado-ticket/listado-ticket.component';
 import { RegisterFeedbackComponent } from './Components/register-feedback/register-feedback.component';
 import { EstrellasComponent } from './Components/register-feedback/estrellas/estrellas.component';
 import { ListadoTrabajadorComponent } from './Components/listado-Trabajador/listado-trabajador.component';
+import { BotComponent } from './Components/bot/bot.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +42,11 @@ import { ListadoTrabajadorComponent } from './Components/listado-Trabajador/list
     SideMenuComponent,
     DetalleTicketComponent,
     AgregarTicketComponent,
-    ConsultaTickerEstadoComponent,
     ListadoTicketComponent,
     RegisterFeedbackComponent,
     EstrellasComponent,
     ListadoTrabajadorComponent,
+    BotComponent
   ],
   imports: [
     BrowserModule,
