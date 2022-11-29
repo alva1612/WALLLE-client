@@ -13,11 +13,7 @@ import Swal from 'sweetalert2'
 })
 export class ListadoTrabajadorComponent implements OnInit {
 
-  
-  // public id:number = -1;
-
   trabajadores2: Trabajador2[] = [];
-
 
   roles: Rol[] = [];
  
@@ -50,7 +46,7 @@ export class ListadoTrabajadorComponent implements OnInit {
 
     this.trabajadorService.listarTodos().subscribe((x) => {
 
-    
+      console.log(x)
       return this.trabajadores2 = x});
 
       this.utilService.listaRol().subscribe(
@@ -60,63 +56,49 @@ export class ListadoTrabajadorComponent implements OnInit {
   }
 
   actualiza(){
-
-    console.log(">>> actualiza >> ");
+    console.log("ACTUALIZA TRABAJADOR")
     console.log(this.trabajador)
-
     this.trabajadorService.actualizaTrabajador(this.trabajador).subscribe(
-
-        x => Swal.fire('Mensaje', x.mensaje,'info')
-
-        
-
+        x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
+          if (result.isConfirmed) {
+            this.trabajadorService.listarTodos().subscribe((x) => {
+              return this.trabajadores2 = x});
+          }
+        })
     )
-
-    this.router.navigate(['/mantenimientoTrabajador']);
-   
-
-  
-
 }
 
 registra(){
-
-  console.log(">>> registra >> ");
-  console.log(this.trabajador)
-
   this.trabajadorService.registraTrabajador(this.trabajador).subscribe(
-
-      x => Swal.fire('Mensaje', x.mensaje,'info')
-
-      
-
+      x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
+        if (result.isConfirmed) {
+          this.trabajadorService.listarTodos().subscribe((x) => {
+            return this.trabajadores2 = x});
+        }
+      })
   )
-
-  this.router.navigate(['/mantenimientoTrabajador']);
- 
-
-
-
+  // this.router.navigate(['/mantenimientoTrabajador']);
 }
 
 busca(obj: Trabajador2){
-
-
-  console.log(obj)
-
   this.trabajador = obj;
+}
 
-  this.utilService.listaRol().subscribe(
-    response => this.roles = response
-);  
-  
-  // this.ubigeoService.listaProvincias(this.docente.ubigeo?.departamento).subscribe(
-  //   response =>  this.provincias= response
-  // );
-
-  // this.ubigeoService.listaDistritos(this.docente.ubigeo?.departamento, this.docente.ubigeo?.provincia).subscribe(
-  //   response =>  this.distritos= response
-  //  );
+limpiarForm(){
+  this.trabajador = { 
+    id_trabajador:0,
+    rol:{
+      idRol: -1,
+      descripcion:"", 
+    },
+    documento:"",
+    nombres:"",
+    apellidos:"",
+    correo:"",
+    descripcion:"",
+    usuario:"",
+    password:""
+  };
 }
 
   ngOnInit(): void {
