@@ -61,24 +61,23 @@ export class ListadoTrabajadorComponent implements OnInit {
     this.trabajadorService.actualizaTrabajador(this.trabajador).subscribe(
         x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
           if (result.isConfirmed) {
-            // Swal.fire('Saved!', '', 'success')
             this.trabajadorService.listarTodos().subscribe((x) => {
-
-              console.log(x)
               return this.trabajadores2 = x});
-          } else if (result.isDenied) {
-            // Swal.fire('Changes are not saved', '', 'info')
           }
         })
     )
-    // this.router.navigate(['/mantenimientoTrabajador']);
 }
 
 registra(){
   this.trabajadorService.registraTrabajador(this.trabajador).subscribe(
-      x => Swal.fire('Mensaje', x.mensaje,'info')
+      x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
+        if (result.isConfirmed) {
+          this.trabajadorService.listarTodos().subscribe((x) => {
+            return this.trabajadores2 = x});
+        }
+      })
   )
-  this.router.navigate(['/mantenimientoTrabajador']);
+  // this.router.navigate(['/mantenimientoTrabajador']);
 }
 
 busca(obj: Trabajador2){
