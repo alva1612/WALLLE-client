@@ -23,6 +23,10 @@ export class TrabajadorService {
     return this.http.get<Trabajador2[]>(baseUrlTrabajador + "/listarTodos");
   }
 
+  actualizaTrabajador(trabajador :Trabajador2): Observable<any>{
+    return this.http.put(baseUrlTrabajador + "/actualizarTrabajador", trabajador);
+  }
+
 
 
 
