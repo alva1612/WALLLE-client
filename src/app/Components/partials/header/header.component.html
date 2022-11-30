@@ -6,6 +6,7 @@
     <div class="menu-links">
       <a [routerLink]="['/']" class="nav-item">Inicio</a>
       <a *ngIf="ableToChangeState" [routerLink]="['/mantenimientoTrabajador']" class="nav-item">Mantenimiento de Trabajador</a>
+      <a *ngIf="ableToChangeState" [routerLink]="['/dashboard']" class="nav-item">Dashboard</a>
     </div>
   </div>
   <div class="header-right">

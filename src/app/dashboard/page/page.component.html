@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action pointer"
+          [ngClass]="{
+            'active': isRouteActive('mes')
+          }"
+          [routerLink]="'por-mes'">Por mes</li>
+        <li class="list-group-item list-group-item-action pointer"
+          [ngClass]="{
+            'active': isRouteActive('ranking')
+          }"
+          [routerLink]="'por-ranking'">Por puntaje</li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-8 col-lg-9 col-xl-10">
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

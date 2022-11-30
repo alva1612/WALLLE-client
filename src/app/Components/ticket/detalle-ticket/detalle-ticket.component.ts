@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Estado, Ticket } from 'src/app/Models/Models';
 import { TokenService } from 'src/app/security/token.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { TicketService } from 'src/app/services/ticket.service';
 import { UtilService } from 'src/app/services/util.service';
 import Swal from 'sweetalert2';
@@ -23,11 +24,13 @@ export class DetalleTicketComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private ticketService: TicketService,
     private _utilService: UtilService,
-    private _tokenService: TokenService
+    private _tokenService: TokenService,
+    private loader: LoadingService,
     ) {
       console.log(_tokenService.roles)
       if (this.isAbleToChangeState)
         this.ableToChangeState = true
+    this.loader.show()
     }
 
     get tokenData() {return this._tokenService}
@@ -61,6 +64,7 @@ export class DetalleTicketComponent implements OnInit {
           title: 'Error',
           text: 'Ocurrió un error al intentar cargar el ticket',
         })
+        this.loader.hide()
       } else {
         console.log(x)
         this.ticket = x;
@@ -71,6 +75,7 @@ export class DetalleTicketComponent implements OnInit {
         if (x.idTrabajador == this._tokenService.getUserId())
           this.ableToChangeState = true
         this.selectedState.id_estado = Number(this.ticket.estado?.id_estado)?? 0
+        this.loader.hide()
       }
     })
   }

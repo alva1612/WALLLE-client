@@ -1,2 +1,23 @@
-.container {
+mat-progress-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.background-spinner {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(10, 10, 10, 0.2);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.1s ease-out;
+}
+.active {
+  z-index: 4;
+  opacity: 1;
+  transition: all 0.1s ease-in;
 }

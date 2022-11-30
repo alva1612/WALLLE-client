@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { TokenService } from './security/token.service';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { LoadingService } from './services/loading.service';
 // import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -13,6 +14,7 @@ import { Location } from '@angular/common';
 export class AppComponent {
   title = 'walle-client';
   route: string = ''
+  loading$ = this.loader.loading$
 
   isLogged = false;
   nombreUsuario = "";
@@ -20,6 +22,7 @@ export class AppComponent {
     private tokenService: TokenService,
     private _router: Router,
     private location: Location,
+    public loader: LoadingService,
     // @Inject(DOCUMENT) Document: any
     ){
       this.route = _router.url
@@ -81,4 +84,5 @@ export class AppComponent {
 
 
   }
+
 }

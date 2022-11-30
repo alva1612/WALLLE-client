@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2'
 import { TokenService } from 'src/app/security/token.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-listado-ticket',
@@ -43,7 +44,7 @@ export class ListadoTicketComponent implements OnInit {
     private ticketService:TicketService,
     private utilService:UtilService,
     private router: Router,
-    private _tokenService: TokenService
+    private _tokenService: TokenService,
     ) {
     this.isAdmin = this._tokenService.getAuthorities().some(rol => rol === 'administrador')
 
@@ -67,7 +68,6 @@ export class ListadoTicketComponent implements OnInit {
       utilService.listaEstado().subscribe(e => {
 
         this.estados = e;
-
       })
 
       if(id == "6"){
@@ -240,7 +240,6 @@ consulta(){
   this.ticketService.listarTrabajadorEstado(this.ticket2.trabajador!.id_trabajador == -1 ? this.idtrabajador : this.ticket2.trabajador!.id_trabajador  , this.ticket2.estado!.id_estado).subscribe(x => {
 
     this.data2 = x
-
     Swal.fire('Mensaje', 'Se tiene ' +  x.length + ' registros' ,'success');
 
     return this.data = x}

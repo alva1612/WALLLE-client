@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { SideMenuComponent } from './Components/partials/side-menu/side-menu.component';
 
@@ -31,6 +32,8 @@ import { RegisterFeedbackComponent } from './Components/register-feedback/regist
 import { EstrellasComponent } from './Components/register-feedback/estrellas/estrellas.component';
 import { ListadoTrabajadorComponent } from './Components/listado-Trabajador/listado-trabajador.component';
 import { BotComponent } from './Components/bot/bot.component';
+import { NetworkInterceptor } from './interceptors/network.interceptor';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -61,10 +64,14 @@ import { BotComponent } from './Components/bot/bot.component';
     FormsModule,
     MatSelectModule,
     EncargadoModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    DashboardModule
   ],
-  providers: [    { provide: HTTP_INTERCEPTORS, useClass: ProdInterceptorService, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ProdInterceptorService, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: NetworkInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
