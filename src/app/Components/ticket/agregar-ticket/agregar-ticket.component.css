@@ -1,7 +1,8 @@
-body {
+.prueba {
     margin: 0;
     height: 100vh;
-    background-color: black !important;
+    /* background-color: black !important; */
+    background-image: url("/assets/logo.png") ;
     display: flex;
     align-items: center;
     justify-content: center;
