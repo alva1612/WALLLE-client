@@ -241,7 +241,7 @@ consulta(){
 
     this.data2 = x
 
-    Swal.fire('Mensaje', 'Se tiene ' +  x.length + ' registros' ,'info');
+    Swal.fire('Mensaje', 'Se tiene ' +  x.length + ' registros' ,'success');
 
     return this.data = x}
 

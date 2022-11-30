@@ -5,7 +5,7 @@
 <button (click)="limpiarForm()" type="button" data-bs-toggle="modal" data-bs-target="#ModalRegistra" class="btn btn-primary">Nuevo Trabajador</button>
 <br>
 <br>
-    <h5 style="color: black ;">Mantenimiento de Trabajador</h5>
+ 
 
     <br>
     <br>
@@ -156,7 +156,7 @@
                           
                                 <div class="col-lg-6">
                                     <label for="id_act_rol">Rol</label>
-                                    <select  formControlName="validaRol" [(ngModel)] = "trabajador.rol!.idRol"   id="id_act_rol" name="rol" class="form-select">
+                                    <select  formControlName="validaRol" [(ngModel)] = "trabajador.rol!.idRol" id="id_act_rol" name="rol" class="form-select">
                                         <option value="-1"> [Seleccione] </option>
                                         <option *ngFor="let aux of roles" value="{{ aux.idRol }}">
                                             {{ aux.descripcion }}
