@@ -91,7 +91,7 @@ formsActualiza  = new FormGroup({
    this.submitted = false;
 
     this.trabajadorService.actualizaTrabajador(this.trabajador).subscribe(
-        x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
+        x => Swal.fire('Mensaje', 'Se ha actualizado correctamente los datos del Trabajador ' + ' ' +this.trabajador.nombres,'success').then((result) => {
           if (result.isConfirmed) {
             this.trabajadorService.listarTodos().subscribe((x) => {
               return this.trabajadores2 = x});
@@ -114,7 +114,7 @@ registra(){
   console.log(this.trabajador)
 
   this.trabajadorService.registraTrabajador(this.trabajador).subscribe(
-      x => Swal.fire('Mensaje', x.mensaje,'info').then((result) => {
+      x => Swal.fire('Mensaje', 'Se ha registrado al trabajador' + ' ' + this.trabajador.nombres,'success').then((result) => {
         if (result.isConfirmed) {
           this.trabajadorService.listarTodos().subscribe((x) => {
             return this.trabajadores2 = x});

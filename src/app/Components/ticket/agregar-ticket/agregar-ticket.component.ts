@@ -94,7 +94,7 @@ export class AgregarTicketComponent implements OnInit {
 
         x => {
           Swal.fire({
-            icon: 'info',
+            icon: 'success',
             title: 'Resultado del Registro',
             text: x.errores,
           })
