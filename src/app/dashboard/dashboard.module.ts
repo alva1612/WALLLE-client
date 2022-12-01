@@ -8,6 +8,7 @@ import {ChartModule} from 'primeng/chart';
 import {CalendarModule} from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { StatsComponent } from './stats/stats.component';
+import {KnobModule} from 'primeng/knob';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { StatsComponent } from './stats/stats.component';
     AppRoutingModule,
     ChartModule,
     CalendarModule,
-    FormsModule
+    FormsModule,
+    KnobModule,
   ],
   exports: [
     PageComponent

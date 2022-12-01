@@ -21,4 +21,7 @@ export class DashboardService {
 
     return this.http.get<any[]>(this.baseUrlDashboard+"/por-mes",{params})
   }
+  getDash() {
+    return this.http.get<any>(this.baseUrlDashboard)
+  }
 }

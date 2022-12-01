@@ -1,0 +1,8 @@
+.display-no {
+  opacity: 0;
+}
+
+.display {
+  opacity: 1;
+  transition: all 0.3s ease-in;
+}
