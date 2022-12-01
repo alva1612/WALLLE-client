@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Trabajador2 } from '../Models/Models';
 
-const baseUrlTrabajador = AppSettings.API_ENDPOINT_MICRO + '/trabajadores';
+const baseUrlTrabajador = AppSettings.API_ENDPOINT + '/trabajadores';
 
 @Injectable({
   providedIn: 'root'
