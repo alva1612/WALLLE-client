@@ -16,7 +16,7 @@ export class PageComponent implements OnInit {
   get currentRoute() {
     if (this.route.children && this.route.children[0])
       return this.route.children[0].snapshot.routeConfig?.path
-    return ''
+    return 'dashboard'
   }
   toByScore() {
     this.router.navigate(['por-ranking'], {relativeTo:this.route})
@@ -32,6 +32,10 @@ export class PageComponent implements OnInit {
       return false
     case 'ranking':
       if (this.currentRoute === 'por-ranking')
+        return true
+      return false
+    case 'dashboard':
+      if (this.currentRoute === '')
         return true
       return false
     default:

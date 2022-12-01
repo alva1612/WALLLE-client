@@ -5,6 +5,11 @@
       <ul class="list-group">
         <li class="list-group-item list-group-item-action pointer"
           [ngClass]="{
+            'active': isRouteActive('dashboard')
+          }"
+          [routerLink]="'./'">Estadísticas</li>
+        <li class="list-group-item list-group-item-action pointer"
+          [ngClass]="{
             'active': isRouteActive('mes')
           }"
           [routerLink]="'por-mes'">Por mes</li>

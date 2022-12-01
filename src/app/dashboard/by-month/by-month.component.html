@@ -1,1 +1,23 @@
-<p>by-month works!</p>
+<h2>Buscar por mes</h2>
+<div class="field col-12 md:col-4 mt-5">
+  <span class="p-float-label">
+    <p-calendar
+      [(ngModel)]="monthSelect"
+      view="month"
+      selectionMode="range"
+      dateFormat="mm/yy"
+      inputId="monthpicker"
+      (ngModelChange)="onChange($event)">
+    </p-calendar>
+    <label for="calendar">Mes</label>
+  </span>
+</div>
+
+
+  <p-chart
+    [data]="data"
+    type="doughnut"
+    [options]="chartOptions"
+    width="30vw"
+    style="display: flex; justify-content: center;">
+  </p-chart>

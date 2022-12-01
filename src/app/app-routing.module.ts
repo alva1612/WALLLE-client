@@ -12,6 +12,7 @@ import { BotComponent } from './Components/bot/bot.component';
 import { PageComponent } from './dashboard/page/page.component';
 import { ByMonthComponent } from './dashboard/by-month/by-month.component';
 import { ByScoreComponent } from './dashboard/by-score/by-score.component';
+import { StatsComponent } from './dashboard/stats/stats.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
     component: PageComponent,
     children: [
       {path: 'por-mes', component: ByMonthComponent},
-      {path: 'por-ranking', component: ByScoreComponent}
+      {path: 'por-ranking', component: ByScoreComponent},
+      {path: '', component: StatsComponent}
     ]}
 ];
 

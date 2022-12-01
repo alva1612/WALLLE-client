@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppSettings } from '../app.settings';
 
@@ -13,5 +13,12 @@ export class DashboardService {
 
   getReportByScore() {
     return this.http.get<any[]>(this.baseUrlDashboard+"/por-score");
+  }
+  getReportByMonth(start: string, end: string) {
+    const params = new HttpParams()
+      .set('start',start)
+      .append('end',end)
+
+    return this.http.get<any[]>(this.baseUrlDashboard+"/por-mes",{params})
   }
 }
