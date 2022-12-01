@@ -14,6 +14,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ListadoTrabajadorComponent implements OnInit {
 
+  // @ViewChild('closebutton') closebutton;
+
   trabajadores2: Trabajador2[] = [];
 
   roles: Rol[] = [];
@@ -38,7 +40,7 @@ export class ListadoTrabajadorComponent implements OnInit {
   };
 
   // data:Ticket[] = [];
-
+prueba = true;
   emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   submitted = false;
 
@@ -110,17 +112,43 @@ registra(){
   }
 
   this.submitted = false;
-  console.log(">>> registra >> ");
-  console.log(this.trabajador)
+ 
+
+  this.trabajadorService.listarTodos().subscribe((x) => {
+
+    // console.log(x)
+    this.prueba = true;
+    for (let trab of x){
+      if(trab.correo == this.trabajador.correo || trab.documento == this.trabajador.documento){
+
+         this.prueba = false;
+         break;
+   
+      }
+    }
+
+    console.log(this.prueba)
+
+    if(this.prueba){
 
   this.trabajadorService.registraTrabajador(this.trabajador).subscribe(
-      x => Swal.fire('Mensaje', 'Se ha registrado al trabajador' + ' ' + this.trabajador.nombres,'success').then((result) => {
-        if (result.isConfirmed) {
-          this.trabajadorService.listarTodos().subscribe((x) => {
-            return this.trabajadores2 = x});
-        }
-      })
-  )
+          x => Swal.fire('Mensaje', 'Se ha registrado al trabajador' + ' ' + this.trabajador.nombres,'success').then((result) => {
+            if (result.isConfirmed) {
+              this.trabajadorService.listarTodos().subscribe((x) => {
+                return this.trabajadores2 = x});
+            }
+          })
+      )
+
+    }else{
+    Swal.fire('Mensaje', 'El correo o dni ya se encuentra registrado','error')
+    }
+  
+     });
+
+    //  this.closebutton.nativeElement.click();
+
+  
   // this.router.navigate(['/mantenimientoTrabajador']);
 }
 
